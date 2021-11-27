@@ -21,7 +21,6 @@ import { getsCookie } from '../shared/Cookie';
 const Main = (props) => {
   const dispatch = useDispatch();
   const post_list = useSelector((state) => state.post.list.data);
-  // const bookMark_list = useSelector((state) => )
   const is_login = getsCookie('token');
   const [hot, setHot] = React.useState(true);
   const [recent, setRecent] = React.useState(false);
@@ -30,7 +29,7 @@ const Main = (props) => {
   const [close, setClose] = React.useState(false);
   const [location, setLocation] = React.useState(false);
 
-  console.log(post_list);
+  // console.log(post_list);
 
   const changeHot = () => {
     setHot(true);
@@ -228,7 +227,7 @@ const Main = (props) => {
               <Buttons
                 more
                 _onClick={() => {
-                  history.push('/searches');
+                  window.location.replace('/searches');
                 }}
               >
                 줍깅 모임 더 보기
@@ -243,7 +242,7 @@ const Main = (props) => {
             <Grid
               centerFlex
               margin="70px 0px 0px 0px"
-              _onClick={() => history.push('/review')}
+              _onClick={() => window.location.replace('/review')}
             >
               <Buttons more>줍깅러 후기 더 보기</Buttons>
             </Grid>

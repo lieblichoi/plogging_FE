@@ -28,7 +28,8 @@ const SignupForm = (props) => {
   const [active2, setActive2] = useState('');
 
   const numCheck = useSelector(
-    (state) => state.user?.user[0]?.data?.data?.certificationNumber,
+    // (state) => ,
+    (state) => state.user?.list[0]?.data?.data?.certificationNumber,
   );
   console.log(numCheck);
 

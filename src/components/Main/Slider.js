@@ -5,11 +5,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import LeftButton from '../../assets/Icon/LeftButton.svg';
 import RightButton from '../../assets/Icon/RightButton.svg';
-import BannerImg from '../../assets/Icon/BannerImg.jpg';
-import { Grid, Image, Text, Button } from '../../elements/index';
-import MainBanner from './MainBanner/MainBanner';
-import MainBannerSecond from './MainBanner/MainBannerSecond';
-import MainBannerThird from './MainBanner/MainBannerThird';
+import MainBannerAttend from './MainBanner/MainBannerAttend';
+import MainBannerCampaign from './MainBanner/MainBannerCampaign';
+import MainBannerPosting from './MainBanner/MainBannerPosting';
+import MainBannerReview from './MainBanner/MainBannerReview';
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -19,7 +18,7 @@ function SamplePrevArrow(props) {
       style={{
         ...style,
         zIndex: '10',
-        margin: '0px 0px 0px 10px',
+        margin: '0px 0px 0px 26px',
         backgroundSize: '30px',
         backgroundRepeat: 'no-repeat',
       }}
@@ -67,18 +66,10 @@ const Slider = (props) => {
     <React.Fragment>
       <SlickSection>
         <Slick {...styles}>
-          {/* <MainBanner post_list={post_list} /> */}
-          {/* <MainBanner post_list={post_list} /> */}
-          {/* <MainBanner post_list={post_list} /> */}
-          <MainBannerSecond post_list={post_list} />
-          <MainBannerThird post_list={post_list} />
-          {/* <ImageSecond /> */}
-          {/* <Image src="https://jupgging-image.s3.ap-northeast-2.amazonaws.com/mainbanner1.jpg" /> */}
-          {/* <Image src="https://jupgging-image.s3.ap-northeast-2.amazonaws.com/mainbanner2.jpg" /> */}
-          {/* <Image src="https://jupgging-image.s3.ap-northeast-2.amazonaws.com/mainbanner3.jpg" /> */}
-
-          {/* <BannerImg /> */}
-          {/* <SlideImage src={BannerImg} /> */}
+          <MainBannerReview post_list={post_list} />
+          <MainBannerAttend post_list={post_list} />
+          <MainBannerCampaign post_list={post_list} />
+          <MainBannerPosting post_list={post_list} />
         </Slick>
       </SlickSection>
     </React.Fragment>
@@ -97,31 +88,6 @@ const SlickSection = styled.section`
     .slick-list {
       border-radius: 15px;
     }
-  }
-`;
-const ImageSecond = styled.img`
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-  object-fit: cover;
-  display: block;
-  position: relative;
-
-  background-size: cover;
-  background-position: center center;
-  background-image: url('https://jupgging-image.s3.ap-northeast-2.amazonaws.com/mainbanner1.jpg');
-`;
-
-const ButtonImg = styled.img`
-  all: unset;
-  width: 40px;
-  /* padding: 0.5em 2em; */
-  /* color: coral; */
-  /* border-radius: 10px; */
-  &:hover {
-    transition: all 0.3s ease-in-out;
-    background-color: coral;
-    color: #fff;
   }
 `;
 

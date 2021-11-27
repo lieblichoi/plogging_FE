@@ -172,13 +172,13 @@ const ReviewWrite = (props) => {
         Body: file, // 업로드할 파일 객체
       },
     });
-    console.log(upload);
+
     const promise = upload.promise();
-    console.log(promise);
+
     promise.then(
       function (data) {
         dispatch(imageCreators.imageUpload(data.Location));
-        console.log(data.Location);
+        // console.log(data.Location);
         const content = {
           ...contents,
           reviewImg: data.Location,

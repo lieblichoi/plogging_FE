@@ -15,16 +15,8 @@ export const SingleComment = (props) => {
   const dispatch = useDispatch();
 
   const is_login = getsCookie('token');
-
-  console.log(props);
-
   const [OpenReply, setOpenReply] = React.useState(false);
   const [CommentValue, setCommentValue] = React.useState('');
-
-  console.log(CommentValue);
-
-  console.log(props?.comment?.commentId);
-
   const thisCommentId = props?.comment?.commentId;
   const thisPostId = props?.postId;
 
@@ -34,16 +26,12 @@ export const SingleComment = (props) => {
     replyTo: props?.comment?.commentId,
   };
 
-  console.log(comment);
-
   const onClickReplyOpen = () => {
     setOpenReply(!OpenReply);
   };
 
   const onhandleComment = (e) => {
     setCommentValue(e.target.value);
-    var commentVal = e.target.value;
-    console.log(e.target.value);
   };
 
   const uploadReply = () => {
@@ -86,7 +74,6 @@ export const SingleComment = (props) => {
 
   const profileImg = props?.loginInfo?.userImg;
   const username = props?.loginInfo?.nickname;
-  console.log(profileImg);
 
   const inputTheme = createTheme({
     palette: {

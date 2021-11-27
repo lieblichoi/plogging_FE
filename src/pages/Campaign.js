@@ -1,10 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { history } from '../redux/configureStore';
-import styled from 'styled-components';
-import { Grid, Text, Image, Tags, Buttons, Icon } from '../elements/index';
-import BookMark from '../assets/Icon/BookMark.svg';
-import BookMarkOn from '../assets/Icon/bookmarkOn.svg';
-import emptyPinIcon from '../assets/Icon/emptyPinIcon.svg';
+import { Grid, Text, Image } from '../elements/index';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import campaign_thumbnail from '../assets/Campaign/campaign_thumbnail.svg';
@@ -13,19 +9,19 @@ const Campaign = (props) => {
   return (
     <React.Fragment>
       <Grid width="1440px" margin="0px auto">
-        <Grid ColumnFlex>
+        <Grid ColumnFlex padding="10px 0px 40px 0px">
           <Grid center width="100%">
-            <Text bold size="30px" margin="20px 0px">
+            <Text bold size="28px" margin="15px 0px" color="#333333">
               캠페인
             </Text>
-            <Text color="#666666" size="18px">
+            <Text size="18px" color="#666666" margin="10px 0px">
               줍깅에서 준비한 색다른 이벤트를 찾아보세요!
             </Text>
-            <Text color="#666666" size="18px" margin="5px 0px">
+            <Text size="18px" color="#666666">
               줍깅러를 위한 특별한 혜택이 있을지도 몰라요!
             </Text>
 
-            <Text bold align="left" margin="20px 140px">
+            <Text bold align="left" margin="20px 140px" size="18px" color="#333333">
               총 1건
             </Text>
           </Grid>

@@ -13,9 +13,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // calendar...
 import 'react-datepicker/dist/react-datepicker.css';
@@ -28,9 +27,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const Posting = (props) => {
-  console.log(props);
   var postId = parseInt(props.match.params.id);
-  console.log(postId);
 
   const dispatch = useDispatch();
 
@@ -49,7 +46,7 @@ const Posting = (props) => {
   const [type, setType] = React.useState('');
   const [distance, setDistance] = React.useState('');
   const [intro, setIntro] = React.useState('');
-  
+
   const [sstartdate, setSStartdate] = React.useState(new Date());
   const [senddate, setSEnddate] = React.useState(new Date());
   const [lrundate, setLRundate] = React.useState(new Date());
@@ -67,7 +64,6 @@ const Posting = (props) => {
   const handleEndDate = (date) => {
     const newDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
     setEnddate(newDate);
-    console.log(newDate);
   };
 
   const handleSEndDate = (date) => {
@@ -76,17 +72,14 @@ const Posting = (props) => {
 
   const handleLocation = (e) => {
     setLocation(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleType = (e) => {
     setType(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleDistance = (e) => {
     setDistance(e.target.value);
-    console.log(e.target.value);
   };
 
   const inp = document?.getElementById('inputbutton');
@@ -108,9 +101,6 @@ const Posting = (props) => {
   const filePreview = () => {
     const reader = new FileReader();
     const file = fileInput.current.files[0];
-    console.log(file);
-    console.log(file.name);
-    console.log(fileInput);
 
     //비동기적으로 바꿔주는
     reader.readAsDataURL(file);
@@ -162,7 +152,6 @@ const Posting = (props) => {
     promise.then(
       function (data) {
         dispatch(imageCreators.imageUpload(data.Location));
-        console.log(data.Location);
         const content = {
           ...contents,
           postImg: data.Location,
@@ -276,7 +265,12 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={1}>
-            <Text size="18px" padding="17px 0px 0px 0px" margin="0px -55px 0px 0px" align="center">
+            <Text
+              size="18px"
+              padding="17px 0px 0px 0px"
+              margin="0px -55px 0px 0px"
+              align="center"
+            >
               ~
             </Text>
           </Grid>
@@ -501,7 +495,6 @@ const Posting = (props) => {
                     defaultValue={headIntro}
                     onChange={(e) => {
                       setIntro(e.target.value);
-                      console.log(e.target.value);
                     }}
                   />
                 </div>
@@ -559,7 +552,9 @@ const Posting = (props) => {
         </Grid>
         <Grid container padding="50px">
           <ThemeProvider theme={inputTheme}>
-          <Buttons large _onClick={uploadFile}>모임 수정하기</Buttons>
+            <Buttons large _onClick={uploadFile}>
+              모임 수정하기
+            </Buttons>
           </ThemeProvider>
         </Grid>
       </Grid>
@@ -568,7 +563,7 @@ const Posting = (props) => {
 };
 
 const EndDatePicker = styled(DatePicker)`
-width: 100%;
+  width: 100%;
   height: 40px;
   padding: 6px 12px;
   font-size: 14px;
@@ -578,7 +573,7 @@ width: 100%;
   outline: none;
   cursor: pointer;
   background-color: #fff;
-  margin: 0px -41px 0px 49px
+  margin: 0px -41px 0px 49px;
 `;
 
 export default Posting;

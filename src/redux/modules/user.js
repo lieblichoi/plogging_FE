@@ -32,6 +32,7 @@ const initialState = {
   user: [],
   is_login: false,
   phoneNumber: [],
+  list: []
 };
 
 // Action Creators
@@ -376,7 +377,7 @@ export default handleActions(
       }),
     [NUMBER_CHECK]: (state, action) =>
       produce(state, (draft) => {
-        draft.user.push(action.payload.number);
+        draft.list.push(action.payload.number);
       }),
     [GETNUMBER_CHECK]: (state, action) =>
       produce(state, (draft) => {

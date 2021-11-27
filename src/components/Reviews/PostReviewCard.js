@@ -8,7 +8,6 @@ import {
   Buttons,
 } from '../../elements/index';
 
-import img1 from '../../assets/img1.jpg';
 import { history } from '../../redux/configureStore';
 import Location from '../../assets/Icon/Location.svg';
 

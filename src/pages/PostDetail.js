@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 import { postActions } from '../redux/modules/post';
 import { userCreators } from '../redux/modules/user';
-import { actionsCreators as commentActions } from '../redux/modules/comment';
 import { apis } from '../shared/axios';
 import { history } from '../redux/configureStore';
 
@@ -24,22 +23,15 @@ import { getsCookie } from '../shared/Cookie';
 import { Comment } from '../components/Comment/Comment';
 
 const PostDetail = (props) => {
-  console.log(props);
-
   const dispatch = useDispatch();
 
   const is_login = getsCookie('token');
- 
-  const users = useSelector((state) => state.user.userData?.data[0]);
-  console.log(users);
 
+  const users = useSelector((state) => state.user.userData?.data[0]);
   var post_index = parseInt(props.match.params.id);
-  console.log(post_index);
 
   const detail = useSelector((state) => state.post.detail?.data);
   const [Comments, setComments] = React.useState([]);
-
-  console.log(Comments);
 
   const deadline = detail?.limitPeople - detail?.nowPeople;
 
@@ -55,7 +47,7 @@ const PostDetail = (props) => {
 
   useEffect(() => {
     dispatch(userCreators.getUserDB());
-  }, [])
+  }, []);
 
   useEffect(() => {
     dispatch(postActions.getPostDetailDB(post_index));
@@ -64,7 +56,6 @@ const PostDetail = (props) => {
       .getComment(post_index)
       .then((res) => {
         const comments = res.data.data;
-        console.log(comments);
         setComments(comments);
       })
       .catch((err) => console.log(err, '댓글불러오기에러'));
@@ -84,16 +75,6 @@ const PostDetail = (props) => {
 
   return (
     <React.Fragment>
-      {/* <Grid _className="content"> */}
-      {/* <Grid
-            _className="sticky"
-            width="370px"
-            height="424px"
-            border="1px solid #eeeeee"
-            borderRadius="10px"
-          >
-            스티키
-          </Grid> */}
       <Content>
         <Section>
           <ContentBody>
@@ -105,8 +86,7 @@ const PostDetail = (props) => {
                 height="205px"
                 margin="0px 0px 40px 0px"
               />
-              {is_login &&
-              nickname === detail?.writerName ? (
+              {is_login && nickname === detail?.writerName ? (
                 <Grid isFlex>
                   <Text
                     color="#acacac"
@@ -211,7 +191,6 @@ const PostDetail = (props) => {
                       ? `${detail?.userImg}`
                       : 'https://jupgging-image.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB+%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg'
                   }
-                  // src="https://jupgging-image.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB+%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg"
                   size="178"
                   margin="40px 40px 40px 10px"
                 />
@@ -373,7 +352,6 @@ const PostDetail = (props) => {
                         ? `${detail?.userImg}`
                         : 'https://jupgging-image.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB+%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg'
                     }
-                    // src="https://jupgging-image.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB+%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg"
                     size="28"
                     margin="3px 10px 0px 0px"
                   />
@@ -391,7 +369,7 @@ const PostDetail = (props) => {
                     </Grid>
                   ) : (
                     <Grid>
-                      <Tags rec_black>모집마감</Tags>
+                      <Tags rec_red>마감임박</Tags>
                     </Grid>
                   )
                 ) : deadline == 0 ? (
@@ -468,7 +446,7 @@ const PostDetail = (props) => {
                 </Text>
               </Grid>
 
-              {dDay <= 0 ? (
+              {dDay < 0 ? (
                 deadline == 0 ? (
                   <Grid
                     isFlex
@@ -477,8 +455,7 @@ const PostDetail = (props) => {
                   >
                     <Grid>
                       <Buttons dis_enter>
-                        모집이 마감되어
-                        신청 할 수 없습니다😢
+                        모집이 마감되어 신청 할 수 없습니다😢
                       </Buttons>
                     </Grid>
                   </Grid>
@@ -490,8 +467,7 @@ const PostDetail = (props) => {
                   >
                     <Grid>
                       <Buttons dis_enter>
-                      모집이 마감되어 
-                      신청 할 수 없습니다😢
+                        모집이 마감되어 신청 할 수 없습니다😢
                       </Buttons>
                     </Grid>
                   </Grid>
@@ -515,7 +491,6 @@ const PostDetail = (props) => {
                             });
                           } else {
                             handleJoinCancle();
-                            // window.location.replace(`/post/${post_index}`)
                           }
                         }}
                       >
@@ -535,7 +510,6 @@ const PostDetail = (props) => {
                         _onClick={() => {
                           if (is_login && deadline >= 1) {
                             handleJoinCheck();
-                            // window.location.replace(`/post/${post_index}`)
                           } else if (deadline == 0) {
                             Swal.fire({
                               text: '모집 정원이 마감되어 신청이 불가능합니다.',
@@ -571,7 +545,6 @@ const PostDetail = (props) => {
                           });
                         } else {
                           handleJoinCancle();
-                          // window.location.replace(`/post/${post_index}`)
                         }
                       }}
                     >
@@ -587,7 +560,6 @@ const PostDetail = (props) => {
                       _onClick={() => {
                         if (is_login) {
                           handleJoinCheck();
-                          // window.location.replace(`/post/${post_index}`)
                         } else {
                           Swal.fire({
                             text: '로그인해주세요.',
@@ -603,72 +575,18 @@ const PostDetail = (props) => {
                   </Grid>
                 </Grid>
               )}
-
-              {/* {dDay <= 0 ? (<Grid
-                    isFlex
-                    justifyContent="center"
-                    margin="30px 0px 15px 0px"
-                  >
-                    <Grid>
-                      <Buttons dis_enter>
-                      모집 마감! 신청 할 수 없습니다😢
-                      </Buttons>
-                    </Grid>
-                  </Grid>) : joinCheck ? (
-                  <Grid
-                    isFlex
-                    justifyContent="center"
-                    margin="30px 0px 15px 0px"
-                  >
-                    <Grid>
-                      <Buttons medium_b _onClick={()=>{
-                        handleJoinCancle()
-                        // window.location.replace(`/post/${post_index}`)
-                      }}>
-                        모임 참여 취소하기
-                      </Buttons>
-                    </Grid>
-                  </Grid>
-                ) : (
-                  <Grid
-                    isFlex
-                    justifyContent="center"
-                    margin="30px 0px 15px 0px"
-                  >
-                    <Grid>
-                      <Buttons
-                        enter
-                        _onClick={() => {
-                          if (is_login) {
-                            handleJoinCheck();
-                            // window.location.replace(`/post/${post_index}`)
-                          } else {
-                            Swal.fire({
-                              text: '로그인해주세요.',
-                              width: '360px',
-                              confirmButtonColor: '#23c8af',
-                            });
-                            history.push('/login');
-                          }
-                        }}
-                      >
-                        모임 참여 신청하기
-                      </Buttons>
-                    </Grid>
-                  </Grid>
-                )} */}
-              {dDay <= 0 ? (
+              {dDay < 0 ? (
                 ''
-                // <Grid>
-                //   <Grid zIndex="1" isFlex justifyContent="center">
-                //     <Grid>
-                //       <Buttons dis_enter>
-                //         북마크 할 수 없습니다😢
-                //       </Buttons>
-                //     </Grid>
-                //   </Grid>
-                // </Grid>
-              ) : bookMarkInfo ? (
+              ) : // <Grid>
+              //   <Grid zIndex="1" isFlex justifyContent="center">
+              //     <Grid>
+              //       <Buttons dis_enter>
+              //         북마크 할 수 없습니다😢
+              //       </Buttons>
+              //     </Grid>
+              //   </Grid>
+              // </Grid>
+              bookMarkInfo ? (
                 <Grid>
                   <Grid zIndex="1" isFlex justifyContent="center">
                     <Grid>
@@ -726,110 +644,10 @@ const PostDetail = (props) => {
                   </Grid>
                 </Grid>
               )}
-
-              {/* {joinCheck ? (
-                  <Grid
-                    isFlex
-                    justifyContent="center"
-                    margin="30px 0px 15px 0px"
-                  >
-                    <Grid>
-                      <Buttons medium_b _onClick={()=>{
-                        handleJoinCancle()
-                        // window.location.replace(`/post/${post_index}`)
-                      }}>
-                        모임 참여 취소하기
-                      </Buttons>
-                    </Grid>
-                  </Grid>
-                ) : (
-                  <Grid
-                    isFlex
-                    justifyContent="center"
-                    margin="30px 0px 15px 0px"
-                  >
-                    <Grid>
-                      <Buttons
-                        enter
-                        _onClick={() => {
-                          if (is_login) {
-                            handleJoinCheck();
-                            // window.location.replace(`/post/${post_index}`)
-                          } else {
-                            Swal.fire({
-                              text: '로그인해주세요.',
-                              width: '360px',
-                              confirmButtonColor: '#23c8af',
-                            });
-                            history.push('/login');
-                          }
-                        }}
-                      >
-                        모임 참여 신청하기
-                      </Buttons>
-                    </Grid>
-                  </Grid>
-                )}
-                {bookMarkInfo ? (
-                  <Grid>
-                    <Grid zIndex="1" isFlex justifyContent="center">
-                      <Grid>
-                        <Buttons
-                          _onClick={() => {
-                            dispatch(postActions.setBookMarkDB(post_index));
-                            window.location.replace(`/post/${post_index}`)
-                          }}
-                          bookmark
-                        >북마크 취소</Buttons>
-                      </Grid>
-                    </Grid>
-                    <Grid zIndex="2">
-                        <Icon
-                          bottom="143px"
-                          left="93px"
-                          width="27px"
-                          src={BookMarkOn}
-                        />
-                      
-                    </Grid>
-                  </Grid>
-                ) : (
-                  <Grid>
-                    <Grid zIndex="1" isFlex justifyContent="center">
-                      <Grid>
-                        <Buttons
-                          _onClick={() => {
-                            if (is_login) {
-                              dispatch(postActions.setBookMarkDB(post_index));
-                              window.location.replace(`/post/${post_index}`)
-                            } else {
-                              Swal.fire({
-                                text: '로그인해주세요.',
-                                width: '360px',
-                                confirmButtonColor: '#23c8af',
-                              });
-                              history.push('/login');
-                            }
-                          }}
-                          bookmark
-                        >북마크 하기</Buttons>
-                      </Grid>
-                    </Grid>
-                    <Grid zIndex="2">
-                      <Icon
-                          bottom="143px"
-                          left="93px"
-                          width="27px"
-                          src={BookMark}
-                        />
-                    </Grid>
-                  </Grid>
-                )} */}
             </Grid>
           </Sticky>
         </Section>
       </Content>
-      {/* </Grid> */}
     </React.Fragment>
   );
 };
@@ -838,8 +656,6 @@ const ContentBody = styled.div`
   color: #666666;
   grid-column: 1 / 3;
 `;
-
-const IntroBody = styled.div``;
 
 const Content = styled.div`
   width: 100%;

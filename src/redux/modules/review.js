@@ -76,7 +76,6 @@ export const deleteReviewDB = (reviewId) => {
     apis
       .deleteReviewAx(reviewId)
       .then((res) => {
-        console.log(res);
         dispatch(deleteReview(reviewId));
       })
       .catch((err) => {

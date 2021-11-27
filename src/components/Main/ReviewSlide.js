@@ -3,6 +3,8 @@ import Slider from 'react-slick';
 import styled from 'styled-components';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Grid } from '../../elements/index';
+import ReviewCardUn from '../Reviews/ReviewCardUn';
 import MainReviewCard from './MainReviewCard';
 import SlideLeftBtn from '../../assets/Icon/SlideLeftBtn.svg';
 import SlideRightBtn from '../../assets/Icon/SlideRightBtn.svg';
@@ -88,11 +90,19 @@ const ReviewSlide = (props) => {
 
   return (
     <SlidSection>
-      <Slider {...styles}>
-        {post_list?.map((p, idx) => {
-          return <MainReviewCard {...p} key={idx} />;
-        })}
-      </Slider>
+      {post_list?.length === 0 ? (
+        <>
+          <Grid centerFlex>
+            <ReviewCardUn />
+          </Grid>
+        </>
+      ) : (
+        <Slider {...styles}>
+          {post_list?.map((p, idx) => {
+            return <MainReviewCard {...p} key={idx} />;
+          })}
+        </Slider>
+      )}
     </SlidSection>
   );
 };

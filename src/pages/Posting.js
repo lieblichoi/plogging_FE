@@ -7,15 +7,14 @@ import { imageCreators } from '../redux/modules/image';
 import { postActions } from '../redux/modules/post';
 
 // m-ui...
-import { Text, Image, Container, Buttons} from '../elements/index';
+import { Text, Image, Container, Buttons } from '../elements/index';
 import { Grid, TextField } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 // calendar...
 import 'react-datepicker/dist/react-datepicker.css';
@@ -24,7 +23,7 @@ import Editor from '../components/Posting/Editor';
 import DatePicker from 'react-datepicker';
 import { ko } from 'date-fns/esm/locale';
 
-const Posting = (props) => {
+const Posting = () => {
   const dispatch = useDispatch();
   const preview = useSelector((state) => state.image.preview);
   const [title, setTitle] = React.useState('');
@@ -58,19 +57,16 @@ const Posting = (props) => {
   const handleRunDate = (date) => {
     const newDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
     setRundate(newDate);
-    console.log(newDate);
   };
 
   const handleStartDate = (date) => {
     const newDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
     setStartdate(newDate);
-    console.log(newDate);
   };
 
   const handleEndDate = (date) => {
     const newDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
     setEnddate(newDate);
-    console.log(newDate);
   };
 
   const handleSRunDate = (date) => {
@@ -82,7 +78,6 @@ const Posting = (props) => {
       date.getTime() + date.getTimezoneOffset() * 160000,
     );
     setLRundate(newDate);
-    console.log(newDate);
   };
 
   const handleSStartDate = (date) => {
@@ -95,27 +90,22 @@ const Posting = (props) => {
 
   const handleLocation = (e) => {
     setLocation(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleLimit = (e) => {
     setLimit(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleType = (e) => {
     setType(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleDistance = (e) => {
     setDistance(e.target.value);
-    console.log(e.target.value);
   };
 
   const getEditorContent = (content) => {
     setContent(content);
-    console.log(content);
   };
 
   const inp = document?.getElementById('inputbutton');
@@ -137,10 +127,6 @@ const Posting = (props) => {
   const filePreview = () => {
     const reader = new FileReader();
     const file = fileInput.current.files[0];
-    console.log(file);
-    console.log(file.name);
-    console.log(fileInput);
-
     //비동기적으로 바꿔주는
     reader.readAsDataURL(file);
     //로딩이 끝났을때
@@ -186,13 +172,10 @@ const Posting = (props) => {
         Body: file, // 업로드할 파일 객체
       },
     });
-    console.log(upload);
     const promise = upload.promise();
-    console.log(promise);
     promise.then(
       function (data) {
         dispatch(imageCreators.imageUpload(data.Location));
-        console.log(data.Location);
         const content = {
           ...contents,
           postImg: data.Location,
@@ -262,7 +245,7 @@ const Posting = (props) => {
             </Grid>
             <Grid item xs={12} sm={10}>
               <RunDatePicker
-              portalId="root-portal"
+                portalId="root-portal"
                 selected={srundate}
                 onChange={(date) => {
                   handleRunDate(date);
@@ -279,19 +262,9 @@ const Posting = (props) => {
                 dateFormat="yyyy년 MM월 d일 aa h:mm"
                 minDate={new Date()}
                 popperModifiers={{
-                  preventOverflow: {enable: true}
+                  preventOverflow: { enable: true },
                 }}
                 fixedHeight
-      //           calendarContainer={
-      //             <div style={{ padding: "16px", background: "#216ba5", color: "#fff" }}>
-      //   <CalendarContainer className={className}>
-      //     <div style={{ background: "#f0f0f0" }}>
-      //       What is your favorite day?
-      //     </div>
-      //     <div style={{ position: "relative" }}>{children}</div>
-      //   </CalendarContainer>
-      // </div>
-      //           }
               />
             </Grid>
             <Grid item xs={12} sm={2}>
@@ -301,7 +274,7 @@ const Posting = (props) => {
             </Grid>
             <Grid item xs={12} sm={4}>
               <StartDatePicker
-              portalId="root-portal"
+                portalId="root-portal"
                 locale={ko}
                 selected={sstartdate}
                 onChange={(date) => {
@@ -319,14 +292,18 @@ const Posting = (props) => {
               />
             </Grid>
             <Grid item xs={12} sm={1}>
-              <Text size="18px" padding="17px 0px 0px 0px" margin="0px -55px 0px 0px" align="center">
+              <Text
+                size="18px"
+                padding="17px 0px 0px 0px"
+                margin="0px -55px 0px 0px"
+                align="center"
+              >
                 ~
               </Text>
             </Grid>
             <Grid item xs={12} sm={5}>
-              
               <EndDatePicker
-              portalId="root-portal"
+                portalId="root-portal"
                 locale={ko}
                 selected={senddate}
                 onChange={(date) => {
@@ -342,7 +319,6 @@ const Posting = (props) => {
                 minDate={sstartdate}
                 maxDate={lrundate}
               />
-              
             </Grid>
             <Grid item xs={12} sm={2}>
               <Text size="18px" padding="17px 0px 0px 0px" bold>
@@ -613,7 +589,9 @@ const Posting = (props) => {
           </Grid>
           <Grid container padding="50px">
             <ThemeProvider theme={inputTheme}>
-              <Buttons large _onClick={uploadFile}>모임 만들기</Buttons>
+              <Buttons large _onClick={uploadFile}>
+                모임 만들기
+              </Buttons>
             </ThemeProvider>
           </Grid>
         </Grid>
@@ -623,7 +601,7 @@ const Posting = (props) => {
 };
 
 const RunDatePicker = styled(DatePicker)`
-width: 105%;
+  width: 105%;
   height: 40px;
   padding: 6px 12px;
   font-size: 14px;
@@ -636,7 +614,7 @@ width: 105%;
 `;
 
 const StartDatePicker = styled(DatePicker)`
-width: 105%;
+  width: 105%;
   height: 40px;
   padding: 6px 12px;
   font-size: 14px;
@@ -649,7 +627,7 @@ width: 105%;
 `;
 
 const EndDatePicker = styled(DatePicker)`
-width: 100%;
+  width: 100%;
   height: 40px;
   padding: 6px 12px;
   font-size: 14px;
@@ -659,7 +637,7 @@ width: 100%;
   outline: none;
   cursor: pointer;
   background-color: #fff;
-  margin: 0px -41px 0px 49px
+  margin: 0px -41px 0px 49px;
 `;
 
 export default Posting;

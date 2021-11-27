@@ -1,24 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
-import {
-  Container,
-  Grid,
-  Image,
-  Text,
-  Icon,
-  Button,
-  Tags,
-} from '../../elements/index';
+import { Container, Grid, Image, Text, Tags } from '../../elements/index';
 import emptyPinIcon from '../../assets/Icon/emptyPinIcon.svg';
 import BookMark from '../../assets/Icon/BookMark.svg';
 import BookMarkOn from '../../assets/Icon/bookmarkOn.svg';
 
 import { history } from '../../redux/configureStore';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { postActions } from '../../redux/modules/post';
 import Swal from 'sweetalert2';
-
-import Location from '../../assets/Icon/Location.svg';
 
 import { getsCookie } from '../../shared/Cookie';
 
@@ -67,21 +56,23 @@ const PostCard = (props) => {
               {dDay < 0 ? (
                 deadLine == 0 ? (
                   <Grid isPosition="absolute" top="4%" margin="0px 10px">
-                  <Tags rec_black>모집마감</Tags>
-                </Grid>
+                    <Tags rec_black>모집마감</Tags>
+                  </Grid>
                 ) : (
-                 <Grid isPosition="absolute" top="4%" margin="0px 10px">
-                  <Tags rec_black>모집마감</Tags>
-                </Grid>
+                  <Grid isPosition="absolute" top="4%" margin="0px 10px">
+                    <Tags rec_black>모집마감</Tags>
+                  </Grid>
                 )
               ) : deadLine == 0 ? (
                 <Grid isPosition="absolute" top="4%" margin="0px 10px">
                   <Tags rec_blue>정원마감</Tags>
                 </Grid>
-              ) : (dDay == 0 ?
+              ) : dDay == 0 ? (
                 <Grid isPosition="absolute" top="4%" margin="0px 10px">
                   <Tags rec_red>마감임박</Tags>
-                </Grid> : <Grid isPosition="absolute" top="4%" margin="0px 10px">
+                </Grid>
+              ) : (
+                <Grid isPosition="absolute" top="4%" margin="0px 10px">
                   <Tags rec_green>D-{dDay}</Tags>
                 </Grid>
               )}
@@ -194,7 +185,7 @@ const PostCard = (props) => {
                 {props.title}
               </Text>
             </Grid>
-            
+
             <Grid flexLeft margin="10px 0px 5px 0px">
               <Text size="14px" color="#333333" bold margin="0px 5px 0px 0px">
                 일시
@@ -212,31 +203,31 @@ const PostCard = (props) => {
               </Text>
             </Grid>
             <Grid isFlex margin="-5px 0px 0px 0px">
-            <Grid flexLeft>
-              <Image
-                shape="circle"
-                size="28"
-                src={
-                  props.userImg
-                    ? props.userImg
-                    : 'https://jupgging-image.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB+%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg'
-                }
-              />
-              <Text size="14px" color="#333333" bold margin="0px 0px 0px 5px">
-                {props.nickname ? props.nickname : '예비줍깅러'}
-              </Text>
-              <Text size="14px" color="#666666">
-                님의 모임
-              </Text>
-            </Grid>
-            <Grid flexLeft margin="10px 0px 10px 0px">
-              <Grid margin="0px 5px 0px 0px">
-                <Tags>{props.type}</Tags>
+              <Grid flexLeft>
+                <Image
+                  shape="circle"
+                  size="28"
+                  src={
+                    props.userImg
+                      ? props.userImg
+                      : 'https://jupgging-image.s3.ap-northeast-2.amazonaws.com/%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB+%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%91%E1%85%B5%E1%86%AF+%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.jpg'
+                  }
+                />
+                <Text size="14px" color="#333333" bold margin="0px 0px 0px 5px">
+                  {props.nickname ? props.nickname : '예비줍깅러'}
+                </Text>
+                <Text size="14px" color="#666666">
+                  님의 모임
+                </Text>
               </Grid>
-              <Grid>
-                <Tags>{props.distance}</Tags>
+              <Grid flexLeft margin="10px 0px 10px 0px">
+                <Grid margin="0px 5px 0px 0px">
+                  <Tags>{props.type}</Tags>
+                </Grid>
+                <Grid>
+                  <Tags>{props.distance}</Tags>
+                </Grid>
               </Grid>
-            </Grid>
             </Grid>
           </Grid>
         </Grid>

@@ -31,7 +31,6 @@ function getSearchParams(parsedSearchParams = {}, options = {}) {
 
 // function useSearchParams() {
 const useSearchParams = () => {
-  
   const { search } = useLocation();
   
   const [searchParams, setSearchParams] = useState(queryString.parse(search));

@@ -26,7 +26,6 @@ const EdutReview = (props) => {
   const review_list = useSelector((state) => state.post.detail.data);
 
   const postId = parseInt(props.match.params.postId);
-  // console.log(review_list);
 
   React.useEffect(() => {
     dispatch(postActions.getPostDetailDB(postId));
@@ -41,9 +40,7 @@ const EdutReview = (props) => {
   const [trashRate, setTrashRate] = React.useState('');
 
   const reviewId = Number(props.match.params.reviewId);
-  // console.log(postId);
 
-  // console.log(reviewId);
   const contents = {
     title: reviewTitle,
     content: reviews,
@@ -181,7 +178,7 @@ const EdutReview = (props) => {
     promise.then(
       function (data) {
         dispatch(imageCreators.imageUpload(data.Location));
-        console.log(data.Location);
+        // console.log(data.Location);
         const content = {
           ...contents,
           reviewId,
@@ -479,17 +476,5 @@ const JupImage = styled.img`
 `;
 
 const Section = styled.section``;
-
-// const InputBox = styled.section`
-//   .css-1gzwwms-MuiInputBase-root-MuiOutlinedInput-root {
-//     width: 1160px;
-//   }
-// `;
-
-// const MultiLineInput = styled.section`
-//   .css-wb57ya-MuiFormControl-root-MuiTextField-root {
-//     width: 1160px;
-//   }
-// `;
 
 export default EdutReview;
