@@ -575,7 +575,7 @@ const Posting = () => {
                 _onClick={fileInputClick}
               />
               <Grid
-              // display='none'
+              // display='none' 
               >
                 <input
                   accept="image/*"
