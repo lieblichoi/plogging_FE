@@ -33,7 +33,7 @@ const Header = (props) => {
             >
               <Image
                 shape="rec"
-                width="128px"
+                width="127px"
                 height="41px"
                 cursor="pointer"
                 src={logo_header}
