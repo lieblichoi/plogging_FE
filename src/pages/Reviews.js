@@ -25,7 +25,7 @@ const Reviews = (props) => {
 
   const review_list = reviewList?.slice(0).reverse();
   const star_list = reviewList
-    .filter((x) => {
+    ?.filter((x) => {
       return x.star >= 1;
     })
     .sort(function (a, b) {
@@ -42,7 +42,7 @@ const Reviews = (props) => {
         <Container width="1440px">
           <Grid margin="25px 0px">
             <Grid center>
-            <Text size="28px" bold margin="15px 0px" color="#333333">
+              <Text size="28px" bold margin="15px 0px" color="#333333">
                 커뮤니티
               </Text>
               <Text size="18px" color="#666666" margin="10px 0px">
@@ -55,7 +55,14 @@ const Reviews = (props) => {
 
             <Grid isFlex padding="30px 155px">
               <Grid>
-              <Text margin="0px 0px 0px 10px" color="#333333" size="18px" bold>총 {review_list?.length}건</Text>
+                <Text
+                  margin="0px 0px 0px 10px"
+                  color="#333333"
+                  size="18px"
+                  bold
+                >
+                  총 {review_list?.length}건
+                </Text>
               </Grid>
               <Grid centerFlex>
                 <Buttons search _onClick={clickRecentSort}>

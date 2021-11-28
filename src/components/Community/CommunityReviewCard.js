@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Grid, Image, Text, Icon } from '../../elements/index';
 import { history } from '../../redux/configureStore';
 import Rating from '@mui/material/Rating';
-import img1 from '../../assets/img1.jpg';
 
 const CommunityReviewCard = (props) => {
   // console.log(props);

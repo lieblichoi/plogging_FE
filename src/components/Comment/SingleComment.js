@@ -133,7 +133,27 @@ export const SingleComment = (props) => {
                       padding="15px"
                       cursor="pointer"
                       _onClick={() => {
-                        deleteReply();
+                        Swal.fire({
+                          title: '삭제',
+                          html: '댓글을 삭제하시겠습니까?',
+  
+                          width: '360px',
+                          height: '112px',
+                          confirmButtonColor: '#23C8AF',
+  
+                          // showDenyButton: true,
+                          showCancelButton: true,
+                          confirmButtonColor: '#23c8af',
+                          cancelButtonColor: '#d33',
+                          confirmButtonText: '삭제',
+                          cancelButtonText: '취소',
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            Swal.fire('삭제완료!');
+                            deleteReply();
+                          }
+                        });
+                        
                       }}
                     >
                       삭제

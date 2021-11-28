@@ -67,7 +67,7 @@ export const addPostDB = (contents) => {
       .addPost(contents)
       .then(() => {
         dispatch(addPost(contents));
-        history.push('/');
+        window.location.replace('/');
         dispatch(imageCreators.setPreview(null));
       })
       .catch((err) => {

@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import { Redirect } from 'react-router';
 import { LoginForm } from '../components';

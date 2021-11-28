@@ -5,9 +5,10 @@ import { history } from '../../redux/configureStore';
 import Location from '../../assets/Icon/Location.svg';
 
 const ApplicationTab = (props) => {
+  console.log(props);
   return (
     <React.Fragment>
-      <Container cursor='pointer'>
+      <Container>
         <Grid>
           <Grid
             maxWidth='1161px'
@@ -54,7 +55,6 @@ const ApplicationTab = (props) => {
                 )}
               </Grid>
             </Grid>
-            {/* padding="10px 18px 16px 18px " */}
             <Grid width='451px' margin='5px 18px 8px 18px'>
               <Grid flexLeft padding='0 0 10px 0'>
                 <Icon width='30px' src={Location} />
@@ -116,23 +116,6 @@ const ApplicationTab = (props) => {
                     </Text>
                   </Grid>
                 </Grid>
-                {/* <Grid flexLeft padding='10px 0 10px 0'>
-                  <Text size='18px' bold>
-                    모임날짜
-                  </Text>
-                  <Text margin='0px 0px 0px 10px' size='18px'>
-                    {/* 2021.10.26 (화) PM 2:00 */}
-                {/* {props.runningDate}
-                  </Text>
-                </Grid> */}
-                {/* <Grid flexLeft padding='0 0 15px 0'>
-                  <Text size='18px' bold>
-                    모집인원
-                  </Text>
-                  <Text margin='0px 0px 0px 10px' size='18px'>
-                    {props.nowPeople} 명 / {props.limitPeople} 명
-                  </Text>
-                </Grid> */}
               </Grid>
               <Grid flexLeft padding='0'>
                 {props.userImg === null ? (
@@ -176,7 +159,7 @@ const ApplicationTab = (props) => {
                 </Grid>
               </Grid>
               <Grid margin='35px 0 10px 0'>
-                {props.dday < 0 ? (
+                {props.attendation === true ? (
                   <Buttons
                     width='270px'
                     medium_b

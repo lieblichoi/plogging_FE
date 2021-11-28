@@ -10,16 +10,10 @@ const ReviewsMyForm = (props) => {
   const dispatch = useDispatch();
 
   const details = useSelector((state) => state.post.reviews?.data);
-  console.log(details);
 
   const users = useSelector((state) => state.user.userData?.data[0]);
-  console.log(users);
-
-  const badge = useSelector((state) => state.user.myBadge?.data);
-  console.log(badge);
 
   const mypageNum = useSelector((state) => state.user.mypageNum?.data);
-  console.log(mypageNum);
 
   React.useEffect(() => {
     dispatch(postActions.getMyReviewDB());

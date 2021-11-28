@@ -15,6 +15,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Box from '@mui/material/Box';
 import styled from 'styled-components';
+import Swal from 'sweetalert2';
 
 // calendar...
 import 'react-datepicker/dist/react-datepicker.css';
@@ -41,25 +42,24 @@ const Posting = (props) => {
   const preview = useSelector((state) => state.image.preview);
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
-  const [enddate, setEnddate] = React.useState(new Date());
+  const [enddate, setEnddate] = React.useState(new Date(detail?.endDate));
   const [location, setLocation] = React.useState('');
   const [type, setType] = React.useState('');
   const [distance, setDistance] = React.useState('');
   const [intro, setIntro] = React.useState('');
-
-  const [sstartdate, setSStartdate] = React.useState(new Date());
   const [senddate, setSEnddate] = React.useState(new Date());
-  const [lrundate, setLRundate] = React.useState(new Date());
 
   const contents = {
-    title: title,
-    content: content,
+    title: title ? title : `${detail?.title}`,
+    content: content ? content : `${detail?.content}`,
     endDate: enddate,
-    location: location,
-    type: type,
-    distance: distance,
-    crewHeadIntro: intro,
+    location: location ? location : `${detail?.location}`,
+    type: type ? type : `${detail?.type}`,
+    distance: distance ? distance : `${detail?.distance}`,
+    crewHeadIntro: intro ? intro : `${detail?.crewHeadIntro}`,
   };
+
+  console.log(contents)
 
   const handleEndDate = (date) => {
     const newDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000);
@@ -120,22 +120,17 @@ const Posting = (props) => {
     const S3_BUCKET = 'jupgging-image';
 
     if (!file) {
-      window.alert('이미지를 업로드 해주세요!');
+      Swal.fire({
+        text: '이미지를 업로드 해주세요!',
+        width: '360px',
+        confirmButtonColor: '#23c8af',
+      });
       return;
     }
     if (
-      contents.title === '' ||
-      contents.content === '' ||
-      contents.runningDate === '' ||
-      contents.startDate === '' ||
-      contents.endDate === '' ||
-      contents.location === '' ||
-      contents.type === '' ||
-      contents.distance === '' ||
-      contents.limitPeople === '' ||
-      contents.crewHeadIntro === ''
+      contents.endDate === '' 
     ) {
-      window.alert('내용을 모두 작성해주세요!');
+      window.alert('필수 항목* 들을 채워주세요!');
       return;
     }
 
@@ -166,12 +161,20 @@ const Posting = (props) => {
 
   const inputTheme = createTheme({
     shape: {
-      borderRadius: 10,
+      borderRadius: 10, 
     },
     palette: {
       primary: { main: '#23C8AF' },
     },
   });
+
+  const ldate = new Date()
+  const maxDate = new Date(detail?.runningDate)
+  const limDate = new Date(
+    maxDate.getTime() + maxDate.getTimezoneOffset() * 160000,
+  ); 
+
+  const minDate = new Date(detail?.startDate)
 
   return (
     <React.Fragment>
@@ -181,7 +184,7 @@ const Posting = (props) => {
         </Text>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
               모임이름
             </Text>
           </Grid>
@@ -199,7 +202,6 @@ const Posting = (props) => {
                 required
                 id="outlined-required"
                 label={detail?.title}
-                defaultValue={detail?.title}
                 fullWidth
                 value={title}
                 onChange={(e) => {
@@ -215,7 +217,7 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#999999">
               모임날짜
             </Text>
           </Grid>
@@ -231,6 +233,7 @@ const Posting = (props) => {
               >
                 <TextField
                   id="outlined-read-only-input"
+                  disabled
                   defaultValue={detail?.runningDate}
                   InputProps={{
                     readOnly: true,
@@ -240,8 +243,8 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
-              모집기간
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
+              모집마감
             </Text>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -249,12 +252,13 @@ const Posting = (props) => {
               <Box
                 component="form"
                 sx={{
-                  '& .MuiTextField-root': { width: '220px' },
+                  '& .MuiTextField-root': { width: '220px'},
                 }}
                 noValidate
                 autoComplete="off"
               >
                 <TextField
+                disabled
                   id="outlined-read-only-input"
                   defaultValue={detail?.startDate}
                   InputProps={{
@@ -278,7 +282,7 @@ const Posting = (props) => {
             <EndDatePicker
               portalId="root-portal"
               locale={ko}
-              selected={senddate}
+              selected={senddate  <= ldate ? limDate : senddate}
               onChange={(date) => {
                 handleEndDate(date);
                 handleSEndDate(date);
@@ -287,14 +291,13 @@ const Posting = (props) => {
               dateFormatCalendar="yyyy년 MMMM"
               selectsEnd
               dateFormat="yyyy년 MM월 dd일"
-              startDate={sstartdate}
               endDate={enddate}
-              minDate={sstartdate}
-              maxDate={lrundate}
+              minDate={minDate}
+              maxDate={limDate}
             />
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
               모임장소
             </Text>
           </Grid>
@@ -305,11 +308,13 @@ const Posting = (props) => {
                 sx={{
                   '& .MuiTextField-root': { width: '220px' },
                 }}
+                
                 noValidate
                 autoComplete="off"
               >
                 <TextField
                   id="outlined-read-only-input"
+                  disabled
                   defaultValue="서울시"
                   InputProps={{
                     readOnly: true,
@@ -330,15 +335,14 @@ const Posting = (props) => {
                 autoComplete="off"
               >
                 <FormControl sx={{ minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
+                  <InputLabel id="demo-simple-select-helper-label" required>
                     {detail?.location}
                   </InputLabel>
                   <Select
                     labelId="demo-simple-select-helper-label"
                     id="demo-simple-select-helper"
                     value={location}
-                    label="모임 장소"
-                    defaultValue={detail?.location}
+                    label="모임구"
                     onChange={handleLocation}
                     required
                   >
@@ -373,7 +377,7 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
               장소유형
             </Text>
           </Grid>
@@ -388,7 +392,7 @@ const Posting = (props) => {
                 autoComplete="off"
               >
                 <FormControl sx={{ minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
+                  <InputLabel id="demo-simple-select-helper-label" required>
                     {detail?.type}
                   </InputLabel>
                   <Select
@@ -396,7 +400,6 @@ const Posting = (props) => {
                     id="demo-simple-select-helper"
                     value={type}
                     label="장소 유형"
-                    defaultValue={detail?.type}
                     onChange={handleType}
                     required
                   >
@@ -410,7 +413,7 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
               진행거리
             </Text>
           </Grid>
@@ -425,7 +428,7 @@ const Posting = (props) => {
                 autoComplete="off"
               >
                 <FormControl sx={{ minWidth: 120 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
+                  <InputLabel id="demo-simple-select-helper-label" required>
                     {detail?.distance}
                   </InputLabel>
                   <Select
@@ -433,7 +436,6 @@ const Posting = (props) => {
                     id="demo-simple-select-helper"
                     value={distance}
                     label="진행 거리"
-                    defaultValue={detail?.distance}
                     onChange={handleDistance}
                     required
                   >
@@ -447,7 +449,7 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#999999">
               모집인원
             </Text>
           </Grid>
@@ -462,6 +464,7 @@ const Posting = (props) => {
                 autoComplete="off"
               >
                 <TextField
+                  disabled
                   id="outlined-read-only-input"
                   defaultValue={detail?.limitPeople}
                   InputProps={{
@@ -472,7 +475,7 @@ const Posting = (props) => {
             </ThemeProvider>
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
               팀장소개
             </Text>
           </Grid>
@@ -502,7 +505,7 @@ const Posting = (props) => {
             </Grid>
           </ThemeProvider>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
               모임소개
             </Text>
           </Grid>
@@ -517,8 +520,8 @@ const Posting = (props) => {
             />
           </Grid>
           <Grid item xs={12} sm={2}>
-            <Text size="18px" padding="17px 0px 0px 0px" bold>
-              이미지
+            <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">
+              이미지*
             </Text>
           </Grid>
           <Grid item xs={12} sm={4}>

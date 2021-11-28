@@ -11,7 +11,6 @@ const CrewsMyForm = (props) => {
 
   const detail = useSelector((state) => state.post.lists?.data);
   const users = useSelector((state) => state.user.userData?.data[0]);
-  const badge = useSelector((state) => state.user.myBadge?.data);
   const mypageNum = useSelector((state) => state.user.mypageNum?.data);
 
   React.useEffect(() => {
@@ -40,14 +39,10 @@ const CrewsMyForm = (props) => {
               </Grid>
             </Grid>
             <Text size='24px' padding='10px 0 10px 0' bold>
-              {/* {window.localStorage.getItem('nickname')} */}
-              {users.nickname}
+              {users?.nickname}
             </Text>
             <Grid margin='10px auto 40px auto'>
-              <Tags large>
-                {/* {window.localStorage.getItem('email')} */}
-                {users.email}
-              </Tags>
+              <Tags large>{users?.email}</Tags>
             </Grid>
             <Grid center padding='0 0 120px 0'>
               <Buttons

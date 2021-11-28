@@ -11,7 +11,6 @@ import { history } from '../../redux/configureStore';
 // styled
 import styled from 'styled-components';
 import { Container, Grid, Image, Text, Buttons, Tags } from '../../elements';
-import { Button } from '../../elements';
 import Swal from 'sweetalert2';
 
 // mui
@@ -24,10 +23,8 @@ const MyprofileEditTab = () => {
   const preview = useSelector((state) => state.image.preview);
 
   const users = useSelector((state) => state.user.userData?.data[0]);
-  console.log(users);
 
   const mypageNum = useSelector((state) => state.user.mypageNum?.data);
-  console.log(mypageNum);
 
   React.useEffect(() => {
     dispatch(userCreators.getUserDB());
@@ -53,9 +50,6 @@ const MyprofileEditTab = () => {
     distance: distance,
     intro: intro,
   };
-
-  const [emailC, setEmailC] = useState();
-  const [nicknameC, setNicknameC] = useState();
 
   const RegExNickname = /^[가-힣]{2,6}$/;
   const RegExPassword = /^[a-zA-Z0-9!@#$%^&*]{8,16}$/;
@@ -103,12 +97,6 @@ const MyprofileEditTab = () => {
     if (!file) {
     }
 
-    const user = {
-      ...profileInfo,
-    };
-
-    console.log(user);
-
     // S3 SDK에 내장된 업로드 함수
     const upload = new AWS.S3.ManagedUpload({
       params: {
@@ -131,12 +119,6 @@ const MyprofileEditTab = () => {
         dispatch(
           userCreators.profileEditMiddleware(
             editProfile,
-            // password,
-            // nickname,
-            // location,
-            // distance,
-            // type,
-            // intro,
           ),
         );
       },
@@ -166,9 +148,6 @@ const MyprofileEditTab = () => {
   const filePreview = () => {
     const reader = new FileReader();
     const file = fileInput.current.files[0];
-    console.log(file);
-    console.log(file.name);
-    console.log(fileInput);
 
     //비동기적으로 바꿔주는
     reader.readAsDataURL(file);
@@ -397,7 +376,6 @@ const MyprofileEditTab = () => {
                   _onClick={fileInputClick}
                 />
                 <Grid
-                // display='none'
                 >
                   <input
                     accept='image/*'
@@ -482,60 +460,6 @@ const MyprofileEditTab = () => {
               </ThemeProvider>
             </Grid>
           </Grid>
-          {/* <Grid isFlex width='750px' margin='0 auto 50px auto'>
-            <Text isFlex padding='0 94px 0 0'>
-              닉네임
-            </Text>
-            <ThemeProvider theme={inputTheme}>
-              <Grid item xs={12} sm={10} width='428px' height='54px'>
-                <Box
-                  component='form'
-                  sx={{
-                    '& .MuiTextField-root': { width: '100%' },
-                  }}
-                  noValidate
-                  autoComplete='off'
-                >
-                  <div>
-                    <TextField
-                      required
-                      id='outlined-textarea'
-                      multiline
-                      rows={1}
-                      placeholder='닉네임을 입력해주세요 (한글 2~6자 이내)'
-                      value={nickname}
-                      onChange={(e) => {
-                        setNickname(e.target.value);
-                      }}
-                      error={nickname.length < 2 && nickname.length > 6}
-                      helperText={
-                        nickname.length < 2 && nickname.length > 6
-                          ? '2~6자 이내, 한글만, 띄어쓰기불가'
-                          : ''
-                      }
-                    />
-                  </div>
-                </Box>
-              </Grid>
-            </ThemeProvider>
-            <Button
-              width='128px'
-              height='54px'
-              size='14px'
-              margin='0 0 0 14px'
-              border='0px'
-              borderRadius='10px'
-              color='#fff'
-              bgColor='#333333'
-              _onClick={() => {
-                console.log(nickname);
-                dispatch(userCreators.nicknameCheckMiddleware(nickname));
-                setNicknameC(true);
-              }}
-            >
-              중복 확인
-            </Button>
-          </Grid> */}
           <Grid isFlex width='750px' margin='0 auto 130px auto'>
             <Text isFlex padding='0 76px 0 0'>
               자기소개
@@ -600,7 +524,6 @@ const MyprofileEditTab = () => {
                       key={type2}
                       active={active2 === type2}
                       onClick={() => {
-                        console.log(type2);
                         setType(type2);
                         setActive2(type2);
                       }}
@@ -623,7 +546,6 @@ const MyprofileEditTab = () => {
                       key={type1}
                       active={active1 === type1}
                       onClick={() => {
-                        console.log(type1);
                         setDistance(type1);
                         setActive1(type1);
                       }}
@@ -650,7 +572,6 @@ const MyprofileEditTab = () => {
                       key={type}
                       active={active === type}
                       onClick={() => {
-                        console.log(type);
                         setLocation(type);
                         setActive(type);
                       }}

@@ -32,7 +32,7 @@ const initialState = {
   user: [],
   is_login: false,
   phoneNumber: [],
-  list: []
+  list: [],
 };
 
 // Action Creators
@@ -95,7 +95,6 @@ const loginMiddleware = (email, password) => {
           width: '360px',
           confirmButtonColor: '#23c8af',
         });
-        window.location.replace('/login');
       });
   };
 };
@@ -113,7 +112,6 @@ const signupMiddleware = (
     apis
       .signup(email, password, nickname, location, distance, type, number)
       .then((res) => {
-        console.log(res);
         Swal.fire({
           text: '회원가입이 완료되었습니다.',
           width: '360px',
@@ -132,7 +130,6 @@ const emailCheckMiddleware = (email) => {
     apis
       .emailCheck(email)
       .then((res) => {
-        console.log(res);
         dispatch(emailCheck(email));
         Swal.fire({
           text: '사용가능한 이메일입니다.',
@@ -156,7 +153,6 @@ const nicknameCheckMiddleware = (nickname) => {
     apis
       .nicknameCheck(nickname)
       .then((res) => {
-        console.log(res);
         dispatch(nicknameCheck(nickname));
         Swal.fire({
           text: '사용가능한 닉네임입니다.',
@@ -180,8 +176,6 @@ const numberCheckMiddleware = (number) => {
     apis
       .numberCheckAX(number)
       .then((res) => {
-        console.log(res);
-        // var phoneNumber = res.data;
         dispatch(numberCheck(res));
         Swal.fire({
           text: '인증번호를 입력해주세요.',
@@ -200,7 +194,6 @@ const getNumberCheckMiddleware = (numberCheck) => {
     apis
       .getNumberCheckAX(numberCheck)
       .then((res) => {
-        console.log(res);
         const get_number = res.data;
         dispatch(getNumberCheck(get_number));
         Swal.fire({
@@ -250,7 +243,6 @@ const profileEditMiddleware = (editProfile) => {
       .profileEdit(editProfile)
       .then((res) => {
         dispatch(imageCreators.setPreview(null));
-        console.log(res);
         dispatch(profileEdit(editProfile));
         Swal.fire({
           text: '회원정보 수정이 완료되었습니다.',
@@ -276,7 +268,6 @@ const getProfileMiddleware = (user) => {
       .getProfileAX(user)
       .then((res) => {
         const my_profile = res.data;
-        console.log(my_profile);
         dispatch(getProfile(my_profile));
       })
       .catch((err) => {
@@ -290,9 +281,7 @@ const getUserDB = () => {
     apis
       .getUserAX()
       .then((res) => {
-        console.log(res);
         const get_user = res.data;
-        console.log(get_user);
         dispatch(getUser(get_user));
       })
       .catch((err) => {
@@ -306,7 +295,6 @@ const getBookMarkDB = () => {
     apis
       .getBookMarkAX()
       .then((res) => {
-        console.log(res);
         const bookMark = res.data.data;
         dispatch(getMybookMark(bookMark));
       })
@@ -321,7 +309,6 @@ const getMyPageNumDB = () => {
     apis
       .getMyPageNumAX()
       .then((res) => {
-        console.log(res);
         const mypageNum = res.data;
         dispatch(getMyPageNum(mypageNum));
       })
@@ -336,7 +323,6 @@ const getMyBadgeDB = () => {
     apis
       .getMyBadgeAX()
       .then((res) => {
-        console.log(res);
         const badge = res.data;
         dispatch(getMyBadge(badge));
       })
@@ -361,7 +347,6 @@ export default handleActions(
     [GET_USER]: (state, action) =>
       produce(state, (draft) => {
         draft.userData = action.payload.userData;
-        console.log(action.payload);
       }),
     [NICKNAME_CHECK]: (state, action) =>
       produce(state, (draft) => {

@@ -25,15 +25,37 @@ const MeetingManagement = (props) => {
       confirmButtonColor: '#23c8af',
       cancelButtonColor: '#d33',
       confirmButtonText: '네, 삭제하겠습니다',
+      cancelButtonText: '취소',
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Deleted!');
-        console.log(postId);
+        Swal.fire('삭제!');
         dispatch(postActions.deletePostDB(postId));
         window.location.replace('/meeting/my');
       }
     });
   };
+
+  const runningTime = new Date(props.runningDate);
+  const runningMonth = '' + (runningTime.getMonth() + 1);
+  const runningDay = '' + runningTime.getDate();
+  if (runningMonth.length < 2) {
+    runningMonth = '0' + runningMonth;
+  }
+  if (runningMonth.length < 2) {
+    runningDay = '0' + runningDay;
+  }
+  const runningDate = runningMonth + runningDay;
+
+  const nowTime = new Date();
+  const nowMonth = '' + (nowTime.getMonth() + 1);
+  const nowDay = '' + nowTime.getDate();
+  if (nowMonth.length < 2) {
+    nowMonth = '0' + nowMonth;
+  }
+  if (runningMonth.length < 2) {
+    nowDay = '0' + nowDay;
+  }
+  const nowDate = nowMonth + nowDay;
 
   return (
     <React.Fragment>
@@ -148,14 +170,15 @@ const MeetingManagement = (props) => {
                 <Buttons
                   enter
                   _onClick={() => {
-                    history.push(`/post/${props.postId}`);
+                    window.location.replace(`/post/${props.postId}`);
                   }}
                 >
                   {' '}
                   모임 상세보기
                 </Buttons>
               </Grid>
-              {props.postAttendation === false ? (
+
+              {runningDate === nowDate && props.postAttendation === false ? (
                 <>
                   <Grid margin="10px 0px 0px 0px">
                     <Buttons enter _onClick={clickCheck}>
@@ -164,7 +187,7 @@ const MeetingManagement = (props) => {
                     </Buttons>
                   </Grid>
                 </>
-              ) : (
+              ) : runningDate === nowDate && props.postAttendation === true ? (
                 <>
                   <Grid margin="10px 0px 0px 0px">
                     <Buttons
@@ -179,6 +202,42 @@ const MeetingManagement = (props) => {
                     >
                       {' '}
                       출석 체크 완료
+                    </Buttons>
+                  </Grid>
+                </>
+              ) : runningDate !== nowDate && props.postAttendation === false ? (
+                <>
+                  <Grid margin="10px 0px 0px 0px">
+                    <Buttons
+                      enter_dis
+                      _onClick={() => {
+                        Swal.fire({
+                          text: '모임 당일에 출석체크 해주세요',
+                          width: '360px',
+                          confirmButtonColor: '#23c8af',
+                        });
+                      }}
+                    >
+                      {' '}
+                      출석 체크
+                    </Buttons>
+                  </Grid>
+                </>
+              ) : (
+                <>
+                  <Grid margin="10px 0px 0px 0px">
+                    <Buttons
+                      enter_dis
+                      _onClick={() => {
+                        Swal.fire({
+                          text: '모임 당일에 출석체크 해주세요',
+                          width: '360px',
+                          confirmButtonColor: '#23c8af',
+                        });
+                      }}
+                    >
+                      {' '}
+                      출석 체크
                     </Buttons>
                   </Grid>
                 </>

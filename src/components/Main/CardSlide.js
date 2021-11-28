@@ -49,7 +49,7 @@ function SampleNextArrow(props) {
 const CardSlide = (props) => {
   const post_list = props.post_list;
 
-  console.log(props);
+  // console.log(props);
 
   const styles = {
     dots: true,
@@ -57,7 +57,7 @@ const CardSlide = (props) => {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 4,
-    initialSlide: 1,
+    // initialSlide: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
 

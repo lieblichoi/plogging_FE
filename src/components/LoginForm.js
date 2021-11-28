@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Button, Grid, Input, Text, Buttons } from '../elements';
-import Checkbox from '@mui/material/Checkbox';
+import { Container, Grid, Text, Buttons } from '../elements';
 import Box from '@mui/material/Box';
 import { TextField } from '@mui/material';
 import Visibility from '@material-ui/icons/Visibility';
@@ -14,7 +13,6 @@ import Swal from 'sweetalert2';
 import { history } from '../redux/configureStore';
 import { useDispatch } from 'react-redux';
 import { userCreators } from '../redux/modules/user';
-import { set } from 'date-fns';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -45,8 +43,6 @@ const LoginForm = () => {
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   const RegExPassword = /^[a-zA-Z0-9!@#$%^&*]{6,18}$/;
 
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-
   const login = () => {
     if (email === '' || password === '') {
       return Swal.fire({
@@ -55,8 +51,6 @@ const LoginForm = () => {
         confirmButtonColor: '#23c8af',
       });
     }
-    console.log(RegExEmail.test(email));
-    console.log(RegExPassword.test(password));
 
     if (
       RegExEmail.test(email) === false ||
@@ -68,16 +62,11 @@ const LoginForm = () => {
         confirmButtonColor: '#23c8af',
       });
     }
-    // const loginInfo = {
-    //   email: email,
-    //   password: password,
-    // };
     dispatch(userCreators.loginMiddleware(email, password));
-    history.push('/');
   };
 
+  // onKeyPress
   const handleKeyPress = (e) => {
-    console.log(e.key);
     if (e.key === 'Enter') {
       login();
     }
@@ -195,10 +184,6 @@ const LoginForm = () => {
             </Grid>
 
             <Grid isFlex padding='5px 0 36px 0'>
-              {/* <Grid isFlex>
-              <Checkbox {...label} size='samll' />
-              <Text size='13px'>로그인 상태 유지</Text>
-            </Grid> */}
               <Text size='13px'>이메일찾기 / 비밀번호찾기</Text>
             </Grid>
             <Buttons
@@ -216,9 +201,6 @@ const LoginForm = () => {
             >
               로그인 하기
             </Buttons>
-            {/* <Button text='카카오톡 로그인' width='570px' height='54px'>
-            카카오톡 로그인
-          </Button> */}
             <Grid flexEnd padding='10px 0px'>
               <Text size='13px' padding='0 5px 0 0'>
                 아직 회원이 아니시라면?

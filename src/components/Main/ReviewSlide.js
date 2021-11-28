@@ -53,7 +53,7 @@ const ReviewSlide = (props) => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 2,
-    initialSlide: 1,
+    // initialSlide: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
 

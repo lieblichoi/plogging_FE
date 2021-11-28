@@ -40,7 +40,7 @@ const PostCard = (props) => {
   return (
     <React.Fragment>
       <Container>
-        <Grid width="270px" height="380px">
+        <Grid width="270px" height="380px" cursor="pointer">
           <Grid top="47%" isPosition="absolute">
             <Grid zIndex="-1" margin="0px 0px 0px 230px">
               {bookMarkInfo ? (
@@ -147,7 +147,30 @@ const PostCard = (props) => {
                 </>
               )}
 
-              {deadLine <= 1 ? (
+              {deadLine === 0 ? (
+                <>
+                  <Grid
+                    minwidth="68px"
+                    height="24px"
+                    isPosition="absolute"
+                    top="2%"
+                    borderRadius="5px"
+                    bg="#6984e4"
+                    margin="8px 0px 0px 80px"
+                  >
+                    <Text
+                      align="center"
+                      bold
+                      color="white"
+                      size="14px"
+                      margin="2px"
+                      padding="0px 4px"
+                    >
+                      정원마감
+                    </Text>
+                  </Grid>
+                </>
+              ) : deadLine <= 1 ? (
                 <Grid
                   minwidth="68px"
                   height="24px"
@@ -215,7 +238,7 @@ const PostCard = (props) => {
                 </Grid>
               </Grid>
               <Text
-                width="250px"
+                width="230px"
                 bold
                 size="20px"
                 textOverflow="ellipsis"

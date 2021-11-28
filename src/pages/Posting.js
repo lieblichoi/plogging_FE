@@ -29,8 +29,11 @@ const Posting = () => {
   const [title, setTitle] = React.useState('');
   const [content, setContent] = React.useState('');
   const [rundate, setRundate] = React.useState(new Date());
-  const [startdate, setStartdate] = React.useState(new Date());
-  const [enddate, setEnddate] = React.useState(new Date());
+  const newsDate = new Date(
+    rundate.getTime() - rundate.getTimezoneOffset() * 160000,
+  );
+  const [startdate, setStartdate] = React.useState(new Date(newsDate));
+  const [enddate, setEnddate] = React.useState(new Date(newsDate));
   const [srundate, setSRundate] = React.useState(new Date());
   const [sstartdate, setSStartdate] = React.useState(new Date());
   const [senddate, setSEnddate] = React.useState(new Date());
@@ -79,6 +82,11 @@ const Posting = () => {
     );
     setLRundate(newDate);
   };
+
+  const ldate = new Date();
+  const limDate = new Date(
+    ldate.getTime() - ldate.getTimezoneOffset() * 160000,
+  ); 
 
   const handleSStartDate = (date) => {
     setSStartdate(date);
@@ -229,10 +237,10 @@ const Posting = () => {
                   onChange={(e) => {
                     setTitle(e.target.value);
                   }}
-                  error={title.length < 5 && title.length > 1}
+                  error={title.length < 5 && title.length >= 1 || title.length > 16 }
                   helperText={
-                    title.length < 5 && title.length > 1
-                      ? '최소 5글자 이상으로 채워주세요!'
+                    title.length < 5 && title.length >= 1 || title.length > 16 
+                      ? '모임 제목은 최소 5글자 이상, 최대 14자 이하까지 가능합니다.'
                       : ''
                   }
                 />
@@ -246,7 +254,7 @@ const Posting = () => {
             <Grid item xs={12} sm={10}>
               <RunDatePicker
                 portalId="root-portal"
-                selected={srundate}
+                selected={srundate <= ldate ? limDate : srundate}
                 onChange={(date) => {
                   handleRunDate(date);
                   handleSRunDate(date);
@@ -260,7 +268,7 @@ const Posting = () => {
                 dateFormatCalendar="yyyy년 MMMM"
                 timeCaption="시간"
                 dateFormat="yyyy년 MM월 d일 aa h:mm"
-                minDate={new Date()}
+                minDate={limDate}
                 popperModifiers={{
                   preventOverflow: { enable: true },
                 }}

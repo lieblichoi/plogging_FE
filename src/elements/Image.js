@@ -1,9 +1,20 @@
-import { height } from '@mui/system';
 import React from 'react';
 import styled from 'styled-components';
 
 const Image = (props) => {
-  const { shape, src, size, _onClick, cursor, width, height, borderRadius, margin, padding } = props;
+  const {
+    shape,
+    src,
+    size,
+    _onClick,
+    cursor,
+    width,
+    height,
+    borderRadius,
+    margin,
+    padding,
+    title,
+  } = props;
 
   const styles = {
     src: src,
@@ -14,11 +25,15 @@ const Image = (props) => {
     borderRadius: borderRadius,
     margin: margin,
     cursor,
-    padding: padding 
+    padding: padding,
+    title,
   };
 
   if (shape === 'circle') {
     return <ImageCircle {...styles}></ImageCircle>;
+  }
+  if (shape === 'circleHover') {
+    return <ImageHoverCircle {...styles}></ImageHoverCircle>;
   }
   if (shape === 'circleMedia') {
     return <ImageCircleMedia {...styles}></ImageCircleMedia>;
@@ -61,7 +76,8 @@ Image.defaultProps = {
   borderRadius: '',
   cursor: '',
   _onClick: () => {},
-  padding: ''
+  padding: '',
+  title: '',
 };
 
 const MainBanner = styled.div`
@@ -104,6 +120,28 @@ const AspectInners = styled.div`
   background-position: center center;
 `;
 
+const ImageHoverCircle = styled.div`
+  position: relative;
+  display: inline-block;
+  --size: ${(props) => props.size}px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: var(--size);
+  background-image: url('${(props) => props.src}');
+  background-size: cover;
+  margin: ${(props) => props.margin};
+  cursor: ${(props) => props.cursor};
+  &:hover {
+    transition: all 0.5s;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.22);
+    /* background-color: #23c8af; */
+    color: white;
+    & + span {
+      visibility: visible;
+      opacity: 0.8;
+    }
+  }
+`;
 const ImageCircle = styled.div`
   --size: ${(props) => props.size}px;
   width: var(--size);

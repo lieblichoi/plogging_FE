@@ -57,7 +57,7 @@ const Slider = (props) => {
     slidesToScroll: 1, // 한번 스크롤시 몇장의 슬라이드를 넘기는지
     autoplay: true,
     autoplaySpeed: 4000,
-    rtl: true, // 오른쪽으로 간후 끝지점 부터 왼쪽으로 차례대로 내려온다
+    // rtl: true, // 오른쪽으로 간후 끝지점 부터 왼쪽으로 차례대로 내려온다
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
@@ -66,10 +66,10 @@ const Slider = (props) => {
     <React.Fragment>
       <SlickSection>
         <Slick {...styles}>
-          <MainBannerReview post_list={post_list} />
           <MainBannerAttend post_list={post_list} />
           <MainBannerCampaign post_list={post_list} />
           <MainBannerPosting post_list={post_list} />
+          <MainBannerReview post_list={post_list} />
         </Slick>
       </SlickSection>
     </React.Fragment>

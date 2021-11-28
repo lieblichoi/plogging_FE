@@ -22,25 +22,6 @@ const ReviewTab = (props) => {
           >
             <Grid width='370px'>
               <Image width='370px' src={props.reviewImg} />
-              {/* <Grid
-                width='50px'
-                height='24px'
-                isPosition='absolute'
-                top='2%'
-                borderRadius='5px'
-                bg='#23c8af'
-                margin='8px 0px 0px 8px'
-              >
-                <Text
-                  align='center'
-                  bold
-                  color='white'
-                  size='14px'
-                  margin='2px 6px'
-                >
-                  D-{props.dday}
-                </Text>
-              </Grid> */}
             </Grid>
             <Grid width='451px' margin='5px 18px 8px 18px'>
               <Grid flexLeft padding='0 0 10px 0'>
@@ -115,30 +96,6 @@ const ReviewTab = (props) => {
             </Grid>
             <Grid height='257px' margin='0 10px 0 0'>
               <Grid width='278px' height='87px' margin='60px 0 30px 0'>
-                {/* <Grid flexLeft padding='0 0 5px 0'>
-                  <Text size='16px' bold>
-                    모임날짜
-                  </Text>
-                  <Text size='16px' margin='0 0 0 5px'>
-                    {props.runningDate}
-                  </Text>
-                </Grid>
-                <Grid flexLeft padding='0 0 5px 0'>
-                  <Text size='16px' bold>
-                    모집인원
-                  </Text>
-                  <Text size='16px' margin='0 0 0 5px'>
-                    {props.limitPeople}명
-                  </Text>
-                </Grid>
-                <Grid flexLeft padding='0 0 5px 0'>
-                  <Text size='16px' bold>
-                    모집기간
-                  </Text>
-                  <Text size='16px' margin='0 0 0 5px'>
-                    {props.startDate}~{props.endDate}
-                  </Text>
-                </Grid> */}
               </Grid>
               <Grid margin='35px 0 10px 0'>
                 <Buttons

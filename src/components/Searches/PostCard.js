@@ -77,7 +77,7 @@ const PostCard = (props) => {
                 </Grid>
               )}
               {deadLine == 1 ? (
-                <Grid isPosition="absolute" top="4%" margin="0px 0px 0px 85px">
+                <Grid isPosition="absolute" top="4%" margin="0px 0px 0px 90px">
                   <Tags rec_blue>정원임박</Tags>
                 </Grid>
               ) : (
