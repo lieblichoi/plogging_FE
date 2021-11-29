@@ -11,7 +11,7 @@ import GlobalStyle from './styles/GlobalStyles';
 import { Provider } from 'react-redux';
 import store from './redux/configureStore';
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
