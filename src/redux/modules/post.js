@@ -71,7 +71,7 @@ export const addPostDB = (contents) => {
         dispatch(imageCreators.setPreview(null));
       })
       .catch((err) => {
-        window.alert('에러!');
+        console.log(err);
       });
   };
 };
@@ -99,7 +99,7 @@ export const editPostDB = (postId, contents) => {
         dispatch(imageCreators.setPreview(null));
       })
       .catch((err) => {
-        window.alert('에러!');
+        console.log(err);
       });
   };
 };
@@ -114,7 +114,7 @@ export const getPostDB = () => {
         dispatch(getPost(post_list));
       })
       .catch((err) => {
-        window.alert('게시물 불러오기 실패!');
+        console.log(err);
       });
   };
 };
@@ -129,7 +129,7 @@ export const getAllDB = () => {
         dispatch(getAll(all_list));
       })
       .catch((err) => {
-        window.alert('게시물 불러오기 실패!');
+        console.log(err);
       });
   };
 };

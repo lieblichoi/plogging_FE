@@ -182,6 +182,15 @@ const Posting = (props) => {
         <Text align="center" size="32px">
           <h4>모임 수정하기</h4>
         </Text>
+        <Text align="center" size="16px" color="#666666" margin="10px 0px">
+        모임 날짜 및 모집 시작일, 모임 인원은 수정할 수 없습니다.
+            </Text>
+            <Text align="center" size="16px" color="#666666" margin="10px 0px">
+            모임 날짜, 모집 시작일, 모임 인원을 수정하고 싶으시다면 모임을 삭제한 후 새로 모임을 만들어주세요.
+            </Text>
+            <Text align="center" size="12px" color="#999999" margin="10px 0px 50px 0px">
+            (이미지는 수정하지 않으시더라도 동일 이미지를 한번 더 업로드를 해주셔야 모임 수정이 가능합니다.)
+            </Text>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={2}>
             <Text size="18px" padding="17px 0px 0px 0px" bold color="#333333">

@@ -337,6 +337,20 @@ const PostDetail = (props) => {
                   {detail?.limitPeople}명
                 </Text>
               </Grid>
+              <Grid margin="0px 0px 20px 0px">
+                <Text color="#666666" size="14px" margin="40px 0px 10px 0px">
+                  1. 모임 참여와 취소는 게시글에 명시된 모집 기간 내에만 가능합니다.
+                </Text>
+                <Text color="#666666" size="14px" margin="0px 0px 10px 0px">
+                  2. 기간 내에 취소를 하지 않으신 경우 모임의 참여가 확정되며, 모집이 마감된 이후에는 모임 참여 취소가 불가능합니다.
+                </Text>
+                <Text color="#666666" size="14px" margin="0px 0px 10px 0px">
+                  3. 모임 참여가 확정된 경우에 한하여 모임 날짜 하루 전 오전 9시에 안내 문자를 보내드립니다.
+                </Text>
+                <Text color="#666666" size="14px" margin="0px 0px 10px 0px">
+                  4. 출석 체크는 모임 당일 현장에서 모임장에 의해 직접 인원 체크 후 진행되며, 불참 시 출석률에 변동이 생길 수 있습니다.
+                </Text>
+              </Grid> 
               <Grid margin="80px 0px">
                 <Text
                   bold

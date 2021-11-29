@@ -141,7 +141,7 @@ const Main = (props) => {
                     bold
                     _onClick={changeType}
                   >
-                    #서울{post_list?.userInfo.type}
+                    #{post_list?.userInfo.type}
                   </Button>
                   <Button
                     margin="0px 10px 0px 0px "

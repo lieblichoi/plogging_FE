@@ -9,15 +9,12 @@ const DetailPostInfo = (props) => {
   const detail = props.detail;
 
   const userImg = props.userImg;
-  const reviewImg = detail?.reviewImg;
-  const reviewUserImg = detail?.userImg;
   const reviewNickName = detail?.nickname;
   const star = Number(detail?.star);
   const level = Number(detail?.levelRate);
   const sati = Number(detail?.satiRate);
   const trash = Number(detail?.trashRate);
-  const content = detail?.content;
-  const reviewTitle = detail?.title;
+
   return (
     <React.Fragment>
       <Grid flexLeft padding="30px 0px 0px 0px">

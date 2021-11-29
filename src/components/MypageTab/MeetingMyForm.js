@@ -6,19 +6,18 @@ import { history } from '../../redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { crewActions } from '../../redux/modules/crew';
 import { userCreators } from '../../redux/modules/user';
+import UnCheckCard from './UnCheckCard';
 
 const MeetingMyForm = (props) => {
   const dispatch = useDispatch();
   const crewList = useSelector((state) => state.crew.crew);
   const users = useSelector((state) => state.user.userData?.data[0]);
-  const badge = useSelector((state) => state.user.myBadge?.data);
   const mypageNum = useSelector((state) => state.user.mypageNum?.data);
 
   const crew_list = crewList?.slice(0).reverse();
   React.useEffect(() => {
     dispatch(crewActions.crewDB());
     dispatch(userCreators.getUserDB());
-    dispatch(userCreators.getMyBadgeDB());
     dispatch(userCreators.getMyPageNumDB());
   }, []);
 
@@ -202,17 +201,27 @@ const MeetingMyForm = (props) => {
           </Text>
         </Grid>
         <Grid>
-          <Text align="center" color="#666666" margin="0px 0px 5px 0px">
-            모임 날짜 및 모집 기간, 모임 인원은 수정할 수 없습니다.
-          </Text>
-          <Text align="center" color="#666666">
-            모임 날짜, 모집 기간, 모임 인원을 수정하고 싶으시다면 모임을 삭제한
-            후 새로 모임을 만들어주세요.
-          </Text>
-
-          {crew_list?.map((p, idx) => {
-            return <MeetingManagement {...p} key={idx} />;
-          })}
+          {crew_list?.length === 0 ? (
+            <>
+              <UnCheckCard />
+            </>
+          ) : (
+            <>
+              {' '}
+              <Grid>
+                <Text align="center" color="#666666" margin="0px 0px 5px 0px">
+                  모임 날짜 및 모집 기간, 모임 인원은 수정할 수 없습니다.
+                </Text>
+                <Text align="center" color="#666666">
+                  모임 날짜, 모집 기간, 모임 인원을 수정하고 싶으시다면 모임을
+                  삭제한 후 새로 모임을 만들어주세요.
+                </Text>
+                {crew_list?.map((p, idx) => {
+                  return <MeetingManagement {...p} key={idx} />;
+                })}
+              </Grid>
+            </>
+          )}
         </Grid>
       </Container>
     </React.Fragment>

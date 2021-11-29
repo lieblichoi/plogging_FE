@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { userCreators } from '../redux/modules/user';
 import MyBookMarkCard from './MypageTab/MyBookMarkCard';
+import UnBookMarkCard from './MypageTab/UnBookMarkCard';
 
 const BookMarkMyForm = () => {
   const dispatch = useDispatch();
   const bookMarkList = useSelector((state) => state.user?.myBookmark);
   const bookMark_list = bookMarkList?.slice(0)?.reverse();
   const users = useSelector((state) => state.user.userData?.data[0]);
-  const badge = useSelector((state) => state.user.myBadge?.data);
+
   const mypageNum = useSelector((state) => state.user.mypageNum?.data);
 
   React.useEffect(() => {
@@ -41,14 +42,10 @@ const BookMarkMyForm = () => {
               </Grid>
             </Grid>
             <Text size="24px" padding="10px 0 10px 0" bold>
-              {/* {window.localStorage.getItem('nickname')} */}
               {users.nickname}
             </Text>
             <Grid margin="10px auto 40px auto">
-              <Tags large>
-                {/* {window.localStorage.getItem('email')} */}
-                {users.email}
-              </Tags>
+              <Tags large>{users.email}</Tags>
             </Grid>
             <Grid center padding="0 0 120px 0">
               <Buttons
@@ -232,10 +229,19 @@ const BookMarkMyForm = () => {
               모임 날짜, 모집 기간, 모임 인원을 수정하고 싶으시다면 모임을
               삭제한 후 새로 모임을 만들어주세요.
             </Text> */}
-
-            {bookMark_list?.map((p, idx) => {
-              return <MyBookMarkCard {...p} key={idx} />;
-            })}
+            {bookMark_list?.length === 0 ? (
+              <>
+                <UnBookMarkCard />
+              </>
+            ) : (
+              <>
+                <Grid>
+                  {bookMark_list?.map((p, idx) => {
+                    return <MyBookMarkCard {...p} key={idx} />;
+                  })}
+                </Grid>
+              </>
+            )}
           </Grid>
         </Container>
       </Grid>

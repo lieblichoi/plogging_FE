@@ -116,11 +116,7 @@ const MyprofileEditTab = () => {
           ...profileInfo,
           userImg: data.Location,
         };
-        dispatch(
-          userCreators.profileEditMiddleware(
-            editProfile,
-          ),
-        );
+        dispatch(userCreators.profileEditMiddleware(editProfile));
       },
       function (err) {
         return alert('오류가 발생했습니다: ', err.msg);
@@ -375,8 +371,7 @@ const MyprofileEditTab = () => {
                   src='https://jupgging-image.s3.ap-northeast-2.amazonaws.com/camera_input.png'
                   _onClick={fileInputClick}
                 />
-                <Grid
-                >
+                <Grid>
                   <input
                     accept='image/*'
                     id='inputbutton'
@@ -615,7 +610,7 @@ const types = [
   '동작구',
   '서대문구',
   '서초구',
-  '상동구',
+  '성동구',
   '성북구',
   '송파구',
   '양천구',

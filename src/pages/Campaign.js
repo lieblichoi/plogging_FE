@@ -21,7 +21,13 @@ const Campaign = (props) => {
               줍깅러를 위한 특별한 혜택이 있을지도 몰라요!
             </Text>
 
-            <Text bold align="left" margin="20px 140px" size="18px" color="#333333">
+            <Text
+              bold
+              align="left"
+              margin="20px 140px"
+              size="18px"
+              color="#333333"
+            >
               총 1건
             </Text>
           </Grid>
@@ -44,16 +50,16 @@ const Campaign = (props) => {
                 <Text bold color="#333333" size="20px">
                   플로깅 커뮤니티 런칭 이벤트
                 </Text>
-                <Text color="#acacac" size="14px" margin="0px 20px">
+                {/* <Text color="#acacac" size="14px" margin="0px 20px">
                   2021년 11월 25일 목요일 18:00
-                </Text>
+                </Text> */}
               </Grid>
               <Grid>
                 <Grid isFlex>
-                  <Grid margin="7px 0px 0px 0px">
+                  {/* <Grid margin="7px 0px 0px 0px">
                     <VisibilityOutlinedIcon fontSize="small" />
-                  </Grid>
-                  <Text color="#acacac" size="14px" margin="0px 5px">
+                  </Grid> */}
+                  {/* <Text color="#acacac" size="14px" margin="0px 5px">
                     조회수 2
                   </Text>
                   <Grid margin="7px 2px 0px 0px">
@@ -61,7 +67,7 @@ const Campaign = (props) => {
                   </Grid>
                   <Text color="#acacac" size="14px">
                     북마크수 2
-                  </Text>
+                  </Text> */}
                 </Grid>
               </Grid>
             </Grid>

@@ -22,13 +22,9 @@ import ReviewDetails from '../pages/ReviewDetails';
 import ReviewWrite from '../pages/ReviewWrite';
 import EditReview from '../pages/EditReview';
 import Mypage from '../pages/MyPage';
-
-import {
-  CrewsMyForm,
-  MypageForm,
-  ReviewsMyForm,
-  BookMarkMyForm,
-} from '../components';
+import MyCrew from '../pages/MyCrew';
+import MyBookMark from '../pages/MyBookMark';
+import MyReview from '../pages/MyReview';
 import MeetingMyForm from '../components/MypageTab/MeetingMyForm';
 import MeetingCheckForm from '../components/MypageTab/MeetingCheckForm';
 import CheckSave from '../components/MypageTab/CheckSave';
@@ -77,11 +73,11 @@ function App() {
               />
               <Route path='/review/:reviewId' exact component={ReviewDetails} />
               <Route path='/my' exact component={Mypage} />
-              <Route path='/crews/my' exact component={CrewsMyForm} />
-              <Route path='/reviews/my' exact component={ReviewsMyForm} />
+              <Route path='/crews/my' exact component={MyCrew} />
+              <Route path='/reviews/my' exact component={MyReview} />
               <Route path='/my/edit' exact component={MyprofileEditTab} />
               <Route path='/meeting/my' exact component={MeetingMyForm} />
-              <Route path='/bookMark/my' exact component={BookMarkMyForm} />
+              <Route path='/bookMark/my' exact component={MyBookMark} />
               <Route path='/searches' exact component={Searches} />
               <Route path='/campaign' exact component={Campaign} />
               <Route path='/campaign/1' exact component={CampaignDetail} />

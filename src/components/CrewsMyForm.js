@@ -5,11 +5,13 @@ import { history } from '../redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { postActions } from '../redux/modules/post';
 import { userCreators } from '../redux/modules/user';
+import UnApplicationCard from './MypageTab/UnApplicationCard';
 
 const CrewsMyForm = (props) => {
   const dispatch = useDispatch();
 
   const detail = useSelector((state) => state.post.lists?.data);
+  console.log(detail);
   const users = useSelector((state) => state.user.userData?.data[0]);
   const mypageNum = useSelector((state) => state.user.mypageNum?.data);
 
@@ -215,12 +217,18 @@ const CrewsMyForm = (props) => {
             </Text>
           </Grid>
           <Grid>
-            {detail
-              ?.slice()
-              .reverse()
-              .map((p, idx) => {
-                return <ApplicationTab {...p} />;
-              })}
+            {detail?.length === 0 ? (
+              <>
+                <UnApplicationCard />
+              </>
+            ) : (
+              detail
+                ?.slice()
+                .reverse()
+                .map((p, idx) => {
+                  return <ApplicationTab {...p} />;
+                })
+            )}
           </Grid>
         </Container>
       </Grid>

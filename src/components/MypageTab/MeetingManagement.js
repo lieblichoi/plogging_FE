@@ -35,28 +35,17 @@ const MeetingManagement = (props) => {
     });
   };
 
-  const runningTime = new Date(props.runningDate);
-  const runningMonth = '' + (runningTime.getMonth() + 1);
-  const runningDay = '' + runningTime.getDate();
-  if (runningMonth.length < 2) {
-    runningMonth = '0' + runningMonth;
-  }
-  if (runningMonth.length < 2) {
-    runningDay = '0' + runningDay;
-  }
-  const runningDate = runningMonth + runningDay;
+  const today = new Date();
+  const RunningTime = new Date(props.runningDate);
 
-  const nowTime = new Date();
-  const nowMonth = '' + (nowTime.getMonth() + 1);
-  const nowDay = '' + nowTime.getDate();
-  if (nowMonth.length < 2) {
-    nowMonth = '0' + nowMonth;
-  }
-  if (runningMonth.length < 2) {
-    nowDay = '0' + nowDay;
-  }
-  const nowDate = nowMonth + nowDay;
+  const AttendTime = Math.floor(
+    (today.getTime() - RunningTime.getTime()) / 1000 / 60,
+  );
+  // if (AteendTime < 1) return '러닝데이트 전';
+  // if (AteendTime > 1) return '출석체크';
 
+  console.log(AttendTime);
+  console.log(props.postAttendation);
   return (
     <React.Fragment>
       <Container>
@@ -178,7 +167,25 @@ const MeetingManagement = (props) => {
                 </Buttons>
               </Grid>
 
-              {runningDate === nowDate && props.postAttendation === false ? (
+              {AttendTime < 1 && props.postAttendation === false ? (
+                <>
+                  <Grid margin="10px 0px 0px 0px">
+                    <Buttons
+                      enter_dis
+                      _onClick={() => {
+                        Swal.fire({
+                          text: '모임 당일에 출석체크 해주세요',
+                          width: '360px',
+                          confirmButtonColor: '#23c8af',
+                        });
+                      }}
+                    >
+                      {' '}
+                      출석 체크
+                    </Buttons>
+                  </Grid>
+                </>
+              ) : AttendTime > 1 && props.postAttendation === false ? (
                 <>
                   <Grid margin="10px 0px 0px 0px">
                     <Buttons enter _onClick={clickCheck}>
@@ -187,7 +194,7 @@ const MeetingManagement = (props) => {
                     </Buttons>
                   </Grid>
                 </>
-              ) : runningDate === nowDate && props.postAttendation === true ? (
+              ) : AttendTime > 1 && props.postAttendation === true ? (
                 <>
                   <Grid margin="10px 0px 0px 0px">
                     <Buttons
@@ -205,43 +212,10 @@ const MeetingManagement = (props) => {
                     </Buttons>
                   </Grid>
                 </>
-              ) : runningDate !== nowDate && props.postAttendation === false ? (
-                <>
-                  <Grid margin="10px 0px 0px 0px">
-                    <Buttons
-                      enter_dis
-                      _onClick={() => {
-                        Swal.fire({
-                          text: '모임 당일에 출석체크 해주세요',
-                          width: '360px',
-                          confirmButtonColor: '#23c8af',
-                        });
-                      }}
-                    >
-                      {' '}
-                      출석 체크
-                    </Buttons>
-                  </Grid>
-                </>
               ) : (
-                <>
-                  <Grid margin="10px 0px 0px 0px">
-                    <Buttons
-                      enter_dis
-                      _onClick={() => {
-                        Swal.fire({
-                          text: '모임 당일에 출석체크 해주세요',
-                          width: '360px',
-                          confirmButtonColor: '#23c8af',
-                        });
-                      }}
-                    >
-                      {' '}
-                      출석 체크
-                    </Buttons>
-                  </Grid>
-                </>
+                ''
               )}
+
               {props.dday < 0 ? (
                 <Grid margin="10px 0px 0px 0px">
                   <Buttons

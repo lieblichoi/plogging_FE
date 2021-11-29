@@ -8,7 +8,7 @@ import { Grid, Text, Image, Tags, Buttons } from '../elements/index';
 import mapIcon from '../assets/Icon/mapIcon.svg';
 import distanceIcon from '../assets/Icon/distanceIcon.svg';
 import pinIcon from '../assets/Icon/pinIcon.svg';
-import MainNull from '../assets/MainNull.svg';
+import lostJoopgging from '../assets/Icon/lostJoopgging.svg';
 import Swal from 'sweetalert2';
 
 import { postActions } from '../redux/modules/post';
@@ -1073,9 +1073,9 @@ const Searches = (props) => {
             >
               <Image
                 shape="rec"
-                src={MainNull}
-                width="120px"
-                height="105px"
+                src={lostJoopgging}
+                width="270px"
+                height="205px"
                 margin="0px 0px 20px 0px"
               />
               <Text bold color="#666666" size="20px">

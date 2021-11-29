@@ -5,6 +5,7 @@ import { history } from '../redux/configureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import { postActions } from '../redux/modules/post';
 import { userCreators } from '../redux/modules/user';
+import UnReviewCard from './MypageTab/UnReviewCard';
 
 const ReviewsMyForm = (props) => {
   const dispatch = useDispatch();
@@ -217,12 +218,18 @@ const ReviewsMyForm = (props) => {
             </Text>
           </Grid>
           <Grid>
-            {details
-              ?.slice()
-              .reverse()
-              .map((p, idx) => {
-                return <ReviewTab {...p} />;
-              })}
+            {details?.length === 0 ? (
+              <>
+                <UnReviewCard />
+              </>
+            ) : (
+              details
+                ?.slice()
+                .reverse()
+                .map((p, idx) => {
+                  return <ReviewTab {...p} />;
+                })
+            )}
           </Grid>
         </Container>
       </Grid>

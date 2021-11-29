@@ -1,20 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
-import Swal from 'sweetalert2';
 
 import { Container, Grid, Image, Text, Buttons } from '../../elements/index';
 import { getsCookie } from '../../shared/Cookie';
-import { history } from '../../redux/configureStore';
+// import { history } from '../../redux/configureStore';
 import MainNull from '../../assets/Icon/MainNull.svg';
 import lostJoopgging from '../../assets/Icon/lostJoopgging.svg';
 
-const PostCardUn = (props) => {
-  const is_login = getsCookie('token');
+const UnBookMarkCard = (props) => {
+  //   const isLogin = getsCookie('token');
 
   return (
     <React.Fragment>
       <Container>
-        <Grid width="1170px" height="400px">
+        <Grid width="1170px" height="400px" margin="0px auto">
           <Grid centerColumnFlex width="100%" isPosition="relative">
             <Image
               shape="rec"
@@ -28,28 +26,19 @@ const PostCardUn = (props) => {
             />
           </Grid>
           <Text align="center" bold color="#666666" margin="5px 0px">
-            조건에 맞는 모임이 아직 없습니다.
+            북마크한 모임이 아직 없습니다.
           </Text>
           <Text align="center" bold color="#666666" margin="5px 0px">
-            나만의 줍깅 모임을 직접 만들어 보세요!
+            북마크를 하고 줍깅 모임을 참여해보세요!
           </Text>
           <Grid center margin="25px 0px">
             <Buttons
               nullLink
               _onClick={() => {
-                if (is_login) {
-                  window.location.replace(`/posting`);
-                } else {
-                  Swal.fire({
-                    text: '모임 만들기는 로그인이 필요합니다!',
-                    width: '360px',
-                    confirmButtonColor: '#23c8af',
-                  });
-                  window.location.replace(`/login`);
-                }
+                window.location.replace(`/searches`);
               }}
             >
-              나만의 줍깅 모임 만들러 가기
+              북마크 하러가기
             </Buttons>
           </Grid>
         </Grid>
@@ -58,4 +47,4 @@ const PostCardUn = (props) => {
   );
 };
 
-export default PostCardUn;
+export default UnBookMarkCard;

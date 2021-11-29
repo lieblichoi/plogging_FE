@@ -23,7 +23,7 @@ const DetailPostInfo = (props) => {
           borderRadius="10px"
           overFlow
         >
-          <Grid width="370px" height="120px" padding="18px">
+          <Grid width="370px" height="120px" padding="15px">
             <Grid isFlex>
               <Grid flexLeft>
                 {props.userImg ? (
@@ -84,14 +84,14 @@ const DetailPostInfo = (props) => {
                 </Grid>
               </section>
             </Grid>
-            <Grid margin="5px 0px">
+            <Grid margin="0px 0px 5px 0px">
               <Text bold size="20px">
                 {postTitle}
               </Text>
 
               <Grid flexLeft>
-                <Icon width="25px" src={Location} />
-                <Text size="14px" color="#acacac" margin="5px 0px">
+                <Icon width="26px" src={Location} />
+                <Text size="16px" color="#acacac">
                   서울시 {location}
                 </Text>
               </Grid>

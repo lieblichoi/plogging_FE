@@ -285,7 +285,7 @@ const EdutReview = (props) => {
                         size="15px"
                         margin="0px 0px 10px 0px"
                       >
-                        코스가 길거나 가팔라서 힘드었어요 - 5점
+                        코스가 길거나 가팔라서 힘들었어요 - 5점
                       </Text>
                       <Text
                         textLeft="left"

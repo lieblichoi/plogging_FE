@@ -19,7 +19,7 @@ const CampaignDetail = (props) => {
         </Text>
         <Grid>
         <Grid isFlex>
-                <Grid margin="7px 0px 0px 0px">
+                {/* <Grid margin="7px 0px 0px 0px">
                   <VisibilityOutlinedIcon fontSize="small" />
                 </Grid>
                 <Text color="#acacac" size="14px" margin="0px 5px">
@@ -30,7 +30,7 @@ const CampaignDetail = (props) => {
                 </Grid>
                 <Text color="#acacac" size="14px">
                   북마크수 2
-                </Text>
+                </Text> */}
               </Grid>
               <Text color="#acacac" size="14px">2021년 11월 25일 목요일 18:00</Text>
               </Grid>

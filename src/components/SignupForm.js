@@ -64,11 +64,11 @@ const SignupForm = (props) => {
   const [nicknameC, setNicknameC] = useState('');
 
   const RegExEmail =
-    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
   const RegExNickname = /^[가-힣]{2,6}$/;
   const RegExPassword = /^[a-zA-Z0-9!@#$%^&*]{8,16}$/;
   const RegExPhoneNum = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
-  const RegExNumberCheck = /^[0-9]{1,4}$/;
+  const RegExNumberCheck = /^[0-9]{4}$/;
 
   const signup = () => {
     if (!emailC || !nicknameC) {
@@ -260,7 +260,7 @@ const SignupForm = (props) => {
                 </Button>
               </Grid>
               <Grid margin='0 0 24px 0'>
-              <ThemeProvider theme={inputTheme}>
+                <ThemeProvider theme={inputTheme}>
                   <Grid item xs={12} sm={10}>
                     <Box
                       component='form'
@@ -339,7 +339,7 @@ const SignupForm = (props) => {
                 </ThemeProvider> */}
               </Grid>
               <Grid margin='0 0 24px 0'>
-              <ThemeProvider theme={inputTheme}>
+                <ThemeProvider theme={inputTheme}>
                   <Grid item xs={12} sm={10}>
                     <Box
                       component='form'
@@ -547,11 +547,11 @@ const SignupForm = (props) => {
                           }}
                           onKeyPress={handleKeyPress}
                           error={
-                            RegExNumberCheck.test(numberCheck) !== numCheck &&
+                            RegExNumberCheck.test(numberCheck) === false &&
                             numberCheck.length > 0
                           }
                           helperText={
-                            RegExNumberCheck.test(numberCheck) !== numCheck &&
+                            RegExNumberCheck.test(numberCheck) === false &&
                             numberCheck.length > 0
                               ? '인증번호를 확인해주세요.'
                               : ''
@@ -692,7 +692,7 @@ const types = [
   '동작구',
   '서대문구',
   '서초구',
-  '상동구',
+  '성동구',
   '성북구',
   '송파구',
   '양천구',

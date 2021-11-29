@@ -595,6 +595,12 @@ const Posting = () => {
               </Grid>
             </Grid>
           </Grid>
+            <Text align="center" size="14px" color="#999999" margin="30px 0px -20px 0px">
+            모임장에게는 모임 당일 시작 시간에 맞춰 문자릍 통해 출석 체크 링크가 발송됩니다.
+            </Text>
+            <Text align="center" size="14px" color="#999999" margin="30px 0px -20px 0px">
+            문자를 받은 모임장만 출석 체크가 가능하며, 모임장은 현장에서 인원 파악 후 직접 출석 체크를 진행합니다.
+            </Text>
           <Grid container padding="50px">
             <ThemeProvider theme={inputTheme}>
               <Buttons large _onClick={uploadFile}>
