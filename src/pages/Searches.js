@@ -61,7 +61,9 @@ const Searches = (props) => {
     dispatch(postActions.getAllDB());
   }, []);
 
-  const { withSearchParams } = useSearchParams();
+  const useSearches = useSearchParams();
+  
+  const { withSearchParams } = useSearches
 
   const parentRef = React.useRef(null);
   const childRef = React.useRef(null);
