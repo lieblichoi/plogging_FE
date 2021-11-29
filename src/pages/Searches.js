@@ -1,4 +1,7 @@
 import React from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import queryString from 'query-string';
 
 import styled from 'styled-components';
 import { Grid, Text, Image, Tags, Buttons } from '../elements/index';
@@ -11,7 +14,6 @@ import Swal from 'sweetalert2';
 import { postActions } from '../redux/modules/post';
 import { useDispatch, useSelector } from 'react-redux';
 import PostCard from '../components/Searches/PostCard';
-import useSearchParams from '../shared/useSearchParams';
 import { Link } from 'react-router-dom';
 
 import { getsCookie } from '../shared/Cookie';
@@ -61,8 +63,70 @@ const Searches = (props) => {
     dispatch(postActions.getAllDB());
   }, []);
 
-  const useSearches = useSearchParams();
+  const getSearchParams = (parsedSearchParams = {}, options = {}) => {
+    const params = Object.keys(options).reduce((params, optionType) => {
+      if (optionType === 'set') {
+        if (options.skipAll) {
+          return options.set;
+        }
+        return { ...params, ...options.set };
+      }
   
+      if (optionType === 'remove') {
+        return Object.keys(params).reduce((obj, key) => {
+          if (options.remove.includes(key) === false) {
+            obj[key] = params[key];
+          }
+          return obj;
+        }, {});
+      }
+  
+      return params;
+    }, parsedSearchParams);
+  
+    return queryString.stringify(params, {
+      skipEmptyString: options?.skipEmpty,
+      skipNull: options?.skipEmpty,
+    });
+  }
+
+  const searchLocation = useLocation();
+
+  const useSearchParams = () => {
+    
+    const { search } = searchLocation
+    
+    const [searchParams, setSearchParams] = useState(queryString.parse(search));
+  
+    useEffect(() => {
+      setSearchParams(queryString.parse(search));
+    }, [search]);
+  
+    const withSearchParams = useCallback(
+      (uri, options) => {
+        const { url, query, fragmentIdentifier } = queryString.parseUrl(uri, {
+          parseFragmentIdentifier: true,
+        });
+  
+        const newQuery = getSearchParams({ ...searchParams, ...query }, options);
+  
+        return `${url}${newQuery ? `?${newQuery}` : ''}${
+          fragmentIdentifier ? `#${fragmentIdentifier}` : ''
+        }`;
+      },
+      [searchParams],
+    );
+  
+    return {
+      searchParams,
+      setSearchParams,
+      getSearchParams,
+      withSearchParams,
+    };
+  }
+
+  const useSearches = useSearchParams();
+
   const { withSearchParams } = useSearches
 
   const parentRef = React.useRef(null);
