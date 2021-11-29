@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
 import { getsCookie } from '../shared/Cookie';
 
 const Searches = (props) => {
-  const searchLocation = useLocation();
+  // const searchLocation = useLocation();
   const dispatch = useDispatch();
   const is_login = getsCookie('token');
   const all_data = useSelector((state) => state.post.all.data);
@@ -90,9 +90,11 @@ const Searches = (props) => {
     });
   }
 
+  const {search} = useLocation()
+
   const useSearchParams = () => {
     
-    const { search } = searchLocation
+    // const { search } = searchLocation
     
     const [searchParams, setSearchParams] = useState(queryString.parse(search));
   
