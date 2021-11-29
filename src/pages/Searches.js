@@ -42,6 +42,9 @@ const Searches = (props) => {
   const [recentSort, setRecentSort] = React.useState(true);
   const [viewSort, setViewSort] = React.useState(false);
   const [finSort, setFinSort] = React.useState(false);
+  const [types, setTypes] = React.useState('장소전체');
+  const [distances, setDistances] = React.useState('거리전체');
+  const [locations, setLocations] = React.useState('지역전체');
   // const reviewId = Number(props.match.params.reviewId);
   // console.log(reviewId);
   const clickRecentSort = () => {
@@ -59,10 +62,6 @@ const Searches = (props) => {
     setRecentSort(false);
     setViewSort(false);
   };
-
-  React.useEffect(() => {
-    dispatch(postActions.getAllDB());
-  }, []);
 
   const getSearchParams = (parsedSearchParams = {}, options = {}) => {
     const params = Object.keys(options).reduce((params, optionType) => {
@@ -97,10 +96,6 @@ const Searches = (props) => {
     
     const [searchParams, setSearchParams] = useState(queryString.parse(search));
   
-    useEffect(() => {
-      setSearchParams(queryString.parse(search));
-    }, [search]);
-  
     const withSearchParams = useCallback(
       (uri, options) => {
         const { url, query, fragmentIdentifier } = queryString.parseUrl(uri, {
@@ -115,6 +110,10 @@ const Searches = (props) => {
       },
       [searchParams],
     );
+
+    useEffect(() => {
+      setSearchParams(queryString.parse(search));
+    }, [search]);
   
     return {
       searchParams,
@@ -159,10 +158,6 @@ const Searches = (props) => {
     dispatch(postActions.getFilteredDB(queryId));
   };
 
-  const [types, setTypes] = React.useState('장소전체');
-  const [distances, setDistances] = React.useState('거리전체');
-  const [locations, setLocations] = React.useState('지역전체');
-
   const handleTypes = (value) => {
     setTypes(value);
   };
@@ -187,6 +182,10 @@ const Searches = (props) => {
       window.location.replace(`/login`);
     }
   };
+
+  React.useEffect(() => {
+    dispatch(postActions.getAllDB());
+  }, []);
 
   return (
     <React.Fragment>
