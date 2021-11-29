@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { getsCookie } from '../shared/Cookie';
 
 const Searches = (props) => {
+  const searchLocation = useLocation();
   const dispatch = useDispatch();
   const is_login = getsCookie('token');
   const all_data = useSelector((state) => state.post.all.data);
@@ -89,8 +90,6 @@ const Searches = (props) => {
       skipNull: options?.skipEmpty,
     });
   }
-
-  const searchLocation = useLocation();
 
   const useSearchParams = () => {
     
