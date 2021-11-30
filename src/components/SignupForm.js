@@ -173,6 +173,42 @@ const SignupForm = (props) => {
     },
   });
 
+  const emailCheck = () => {
+    if (email.length === 0) {
+      return Swal.fire({
+        html: '이메일이 입력되지 않았습니다. </br> 다시 입력해주세요!',
+        width: '360px',
+        confirmButtonColor: '#23c8af',
+      });
+    }
+    if (RegExEmail.test(email) === false) {
+      return Swal.fire({
+        text: '이메일 양식에 맞게 입력해주세요',
+        width: '360px',
+        confirmButtonColor: '#23c8af',
+      });
+    }
+    dispatch(userCreators.emailCheckMiddleware(email));
+  };
+
+  const nicknameCheck = () => {
+    if (nickname.length === 0) {
+      return Swal.fire({
+        html: '닉네임이 입력되지 않았습니다. </br> 다시 입력해주세요!',
+        width: '360px',
+        confirmButtonColor: '#23c8af',
+      });
+    }
+    if (RegExNickname.test(nickname) === false) {
+      return Swal.fire({
+        text: '닉네임 양식에 맞게 입력해주세요',
+        width: '360px',
+        confirmButtonColor: '#23c8af',
+      });
+    }
+    dispatch(userCreators.nicknameCheckMiddleware(nickname));
+  };
+
   // onKeyPress
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -252,7 +288,7 @@ const SignupForm = (props) => {
                   color='#fff'
                   bgColor='#333333'
                   _onClick={() => {
-                    dispatch(userCreators.emailCheckMiddleware(email));
+                    emailCheck();
                     setEmailC(true);
                   }}
                 >
@@ -465,7 +501,7 @@ const SignupForm = (props) => {
                   color='#fff'
                   bgColor='#333333'
                   _onClick={() => {
-                    dispatch(userCreators.nicknameCheckMiddleware(nickname));
+                    nicknameCheck();
                     setNicknameC(true);
                   }}
                 >

@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Grid, Image, Text, Icon, Buttons } from '../../elements';
 import { history } from '../../redux/configureStore';
 import Location from '../../assets/Icon/Location.svg';
+import Swal from 'sweetalert2';
 
 const ApplicationTab = (props) => {
   console.log(props);
@@ -158,26 +159,53 @@ const ApplicationTab = (props) => {
                   </Text>
                 </Grid>
               </Grid>
-              <Grid margin='35px 0 10px 0'>
-                {props.attendation === true ? (
-                  <Buttons
-                    width='270px'
-                    medium_b
-                    _onClick={() =>
-                      history.push(`/reviewwrite/${props.postId}`)
-                    }
-                  >
-                    후기 작성하기
-                  </Buttons>
-                ) : (
-                  <Buttons
-                    width='270px'
-                    medium_b
-                    _onClick={() => history.push(`/post/${props.postId}`)}
-                  >
-                    모임 상세보기
-                  </Buttons>
-                )}
+              <Grid center margin='35px 0 10px 0'>
+                {(() => {
+                  if (
+                    props.attendation === false &&
+                    props.reviewInfo === false
+                  ) {
+                    return (
+                      <Buttons
+                        width='270px'
+                        medium_b
+                        _onClick={() => history.push(`/post/${props.postId}`)}
+                      >
+                        모임 상세보기
+                      </Buttons>
+                    );
+                  }
+                  if (props.reviewInfo === true) {
+                    return (
+                      <Buttons
+                        width='270px'
+                        dis_medium
+                        _onClick={() => {
+                          Swal.fire({
+                            text: '이미 후기작성을 하신 것 같아요!',
+                            width: '360px',
+                            confirmButtonColor: '#23c8af',
+                          });
+                        }}
+                      >
+                        후기 작성완료
+                      </Buttons>
+                    );
+                  }
+                  if (props.attendation === true) {
+                    return (
+                      <Buttons
+                        width='270px'
+                        medium_b
+                        _onClick={() =>
+                          history.push(`/reviewwrite/${props.postId}`)
+                        }
+                      >
+                        후기 작성하기
+                      </Buttons>
+                    );
+                  }
+                })()}
               </Grid>
             </Grid>
           </Grid>

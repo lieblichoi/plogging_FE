@@ -5,6 +5,7 @@ import { Container, Grid, Buttons, Image, Text } from '../../../elements/index';
 import { history } from '../../../redux/configureStore';
 
 import MainBannerReviewImg from '../../../assets/MainBanner/MainBannerReview.jpg';
+import MainBanner_review from '../../../assets/MainBanner/MainBanner_review.svg';
 
 import { getsCookie } from '../../../shared/Cookie';
 import Swal from 'sweetalert2';
@@ -20,7 +21,7 @@ const MainBannerReview = (props) => {
             shape="rec"
             height="600px"
             width="1440px"
-            src={MainBannerReviewImg}
+            src={MainBanner_review}
             // cursor="pointer"
             // _onClick={() => {
             //   history.push('/campaign/1');
@@ -30,7 +31,7 @@ const MainBannerReview = (props) => {
         <Grid maxWidth="100%" minWidth="1440px">
           <Grid top="100px" isPosition="absolute">
             <Grid zIndex="-1" margin="75px 140px">
-              <Grid>
+              {/* <Grid>
                 {is_login ? (
                   <Text color="#333333" bold size="28px">
                     {post_list?.nickname}님,
@@ -56,11 +57,12 @@ const MainBannerReview = (props) => {
                 <Text margin="3px 0px" color="#333333" size="14px">
                   지금 후기 페이지로 가주세요!
                 </Text>
-              </Grid>
+              </Grid> */}
 
-              <Grid margin="41px 0px">
+              <Grid margin="284px 0px 41px 0px">
                 <Buttons
                   medium_b
+                  // mainBannerBtn
                   // margin="41px 0px"
                   _onClick={() => {
                     history.push('/review');

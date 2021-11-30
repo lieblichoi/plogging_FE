@@ -13,26 +13,21 @@ import { Checkbox } from '@mui/material';
 
 const MeetingCheckForm = (props) => {
   const dispatch = useDispatch();
-  const crew_list = useSelector((state) => state.crew.crew);
-  console.log(crew_list);
+  // const crew_list = useSelector((state) => state.crew.crew);
   const crew_check = useSelector((state) => state.crew.check);
   const postId = Number(props.match.params.postId);
 
-  console.log(postId);
-  console.log(crew_check);
-  const [meetCheck, setMeetCheck] = React.useState(false);
+  // const [meetCheck, setMeetCheck] = React.useState(false);
   const [checkedInputs, setCheckedInputs] = React.useState([]);
 
-  const crewList = crew_list?.filter((x) => {
-    return x.postId === postId;
-  })[0];
-
-  console.log(crewList);
-  // {x.postId === postId ? (x.nowPeople,x.limitPeople):("")}
+  // const crewList = crew_list?.filter((x) => {
+  //   return x.postId === postId;
+  // })[0];
 
   const changeHandler = (checked, userId) => {
     if (checked) {
       setCheckedInputs([...checkedInputs, userId]);
+      console.log(setCheckedInputs);
     } else {
       // setCheckedInputs(checkedInputs.filter((el) => el !== userId));
       const newCheckedInput = checkedInputs.map((e) => {
@@ -42,6 +37,7 @@ const MeetingCheckForm = (props) => {
           return e;
         }
       });
+      console.log(newCheckedInput);
       setCheckedInputs(
         newCheckedInput.filter((e) => e).length === 0 ? [] : newCheckedInput,
       );

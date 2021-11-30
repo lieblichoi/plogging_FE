@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import LeftButton from '../../assets/Icon/LeftButton.svg';
 import RightButton from '../../assets/Icon/RightButton.svg';
+import MainBannerIlust from './MainBanner/MainBannerIlust';
 import MainBannerAttend from './MainBanner/MainBannerAttend';
 import MainBannerCampaign from './MainBanner/MainBannerCampaign';
 import MainBannerPosting from './MainBanner/MainBannerPosting';
@@ -70,6 +71,7 @@ const Slider = (props) => {
           <MainBannerCampaign post_list={post_list} />
           <MainBannerPosting post_list={post_list} />
           <MainBannerReview post_list={post_list} />
+          <MainBannerIlust post_list={post_list} />
         </Slick>
       </SlickSection>
     </React.Fragment>

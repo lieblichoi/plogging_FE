@@ -42,10 +42,10 @@ const BookMarkMyForm = () => {
               </Grid>
             </Grid>
             <Text size="24px" padding="10px 0 10px 0" bold>
-              {users.nickname}
+              {users?.nickname}
             </Text>
             <Grid margin="10px auto 40px auto">
-              <Tags large>{users.email}</Tags>
+              <Tags large>{users?.email}</Tags>
             </Grid>
             <Grid center padding="0 0 120px 0">
               <Buttons

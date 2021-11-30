@@ -622,15 +622,9 @@ const types = [
   '중랑구',
 ];
 
-const types1 = [
-  '1km 이내',
-  '1km~3km',
-  '3km~5km',
-  '5km 이상',
-  '거리는 상관없어요',
-];
+const types1 = ['1km 이내', '1km~3km', '3km~5km', '5km 이상'];
 
-const types2 = ['도심(시내)에서', '공원에서', '한강에서', '산 또는 숲에서'];
+const types2 = ['도심(시내)', '공원', '한강', '산 또는 숲'];
 
 const Btn = styled.button``;
 

@@ -110,7 +110,6 @@ export const getPostDB = () => {
       .getPost()
       .then((res) => {
         const post_list = res.data;
-        console.log(post_list);
         dispatch(getPost(post_list));
       })
       .catch((err) => {
@@ -159,13 +158,12 @@ export const setBookMarkDB = (postId) => {
     apis
       .setBookMarkAX(postId)
       .then((res) => {
-        console.log(res.data.data.bookMarkOnOff);
         const bookmark = res.data.data;
 
         dispatch(setBookMark(bookmark));
       })
       .catch((err) => {
-        console.log('err');
+        console.log(err);
       });
   };
 };
@@ -278,7 +276,6 @@ export default handleActions(
     [GET_POST]: (state, action) =>
       produce(state, (draft) => {
         draft.list = action.payload.post_list;
-        console.log(action.payload);
       }),
 
     [GET_ALL]: (state, action) =>

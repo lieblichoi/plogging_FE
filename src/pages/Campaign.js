@@ -50,11 +50,11 @@ const Campaign = (props) => {
                 <Text bold color="#333333" size="20px">
                   플로깅 커뮤니티 런칭 이벤트
                 </Text>
-                {/* <Text color="#acacac" size="14px" margin="0px 20px">
-                  2021년 11월 25일 목요일 18:00
-                </Text> */}
               </Grid>
               <Grid>
+                <Text color="#acacac" size="14px" margin="0px 20px">
+                  2021년 11월 25일 목요일 18:00
+                </Text>
                 <Grid isFlex>
                   {/* <Grid margin="7px 0px 0px 0px">
                     <VisibilityOutlinedIcon fontSize="small" />

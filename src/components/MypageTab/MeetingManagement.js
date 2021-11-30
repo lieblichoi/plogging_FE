@@ -2,7 +2,7 @@
 import React from 'react';
 import { Container, Grid, Image, Text, Icon, Buttons } from '../../elements';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { history } from '../../redux/configureStore';
 import { postActions } from '../../redux/modules/post';
 
@@ -37,15 +37,10 @@ const MeetingManagement = (props) => {
 
   const today = new Date();
   const RunningTime = new Date(props.runningDate);
-
   const AttendTime = Math.floor(
     (today.getTime() - RunningTime.getTime()) / 1000 / 60,
   );
-  // if (AteendTime < 1) return '러닝데이트 전';
-  // if (AteendTime > 1) return '출석체크';
 
-  console.log(AttendTime);
-  console.log(props.postAttendation);
   return (
     <React.Fragment>
       <Container>

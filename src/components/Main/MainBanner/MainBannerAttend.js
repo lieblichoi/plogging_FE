@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Container, Grid, Buttons, Text } from '../../../elements/index';
+import { Container, Grid, Buttons, Text, Image } from '../../../elements/index';
 import { history } from '../../../redux/configureStore';
 import { getsCookie } from '../../../shared/Cookie';
+import MainBanner_01 from '../../../assets/MainBanner/MainBanner_01.svg';
 
 const MainBannerAttend = (props) => {
   const post_list = props.post_list?.userInfo;
@@ -11,7 +12,7 @@ const MainBannerAttend = (props) => {
   return (
     <React.Fragment>
       <Container width="1440px">
-        <Grid>
+        <Grid centerFlex isPosition="relative">
           <SlideImage />
         </Grid>
         <Grid maxWidth="100%" minWidth="1440px">
@@ -48,6 +49,7 @@ const MainBannerAttend = (props) => {
               <Grid margin="41px 0px">
                 <Buttons
                   medium_b
+                  // mainBannerBtn
                   // margin="41px 0px"
                   _onClick={() => {
                     history.push('/searches');

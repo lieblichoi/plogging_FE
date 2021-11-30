@@ -171,6 +171,12 @@ const Posting = () => {
       window.alert('내용을 모두 작성해주세요!');
       return;
     }
+    if (
+      contents.title.length > 14 
+    ) {
+      window.alert('모임 제목이 너무 깁니다!');
+      return;
+    }
 
     // S3 SDK에 내장된 업로드 함수
     const upload = new AWS.S3.ManagedUpload({

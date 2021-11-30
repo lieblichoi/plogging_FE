@@ -39,7 +39,8 @@ const Buttons = (props) => {
     mob_cancle,
     search,
     dis_enter,
-    nullLink
+    nullLink,
+    mainBannerBtn,
   } = props;
   const styles = {
     margin,
@@ -323,6 +324,15 @@ const Buttons = (props) => {
       </React.Fragment>
     );
   }
+  if (mainBannerBtn) {
+    return (
+      <React.Fragment>
+        <MainBannerButton {...styles} onClick={_onClick}>
+          {text ? text : children}
+        </MainBannerButton>
+      </React.Fragment>
+    );
+  }
   return (
     <React.Fragment>
       <SmallButton {...styles} onClick={_onClick}>
@@ -365,7 +375,7 @@ Buttons.defaultProps = {
   mob_enter: '',
   mob_cancle: '',
   dis_enter: '',
-  nullLink: '' 
+  nullLink: '',
 };
 
 const LargeButton = styled(Button)({
@@ -1540,7 +1550,7 @@ const EnterButtonDisable = styled(Button)({
     backgroundColor: '#aaaaaa',
     borderColor: '#aaaaaa',
     boxShadow: 'none',
-  }
+  },
 });
 
 const MediumButtonLink = styled(Button)({
@@ -1577,6 +1587,53 @@ const MediumButtonLink = styled(Button)({
     boxShadow: 'none',
   },
   '&:active': {
+    boxShadow: 'none',
+    backgroundColor: '#23C8AF',
+    borderColor: '#23C8AF',
+    color: '#fff',
+  },
+});
+
+const MainBannerButton = styled(Button)({
+  color: '#fff',
+  height: '54px',
+  width: '278px',
+  boxShadow: 'none',
+  textTransform: 'none',
+  fontSize: 18,
+  fontWeight: 700,
+  padding: '6px 12px',
+  border: '2px solid',
+  borderRadius: '10px',
+  lineHeight: 1.5,
+  backgroundColor: '#23C8AF',
+  borderColor: '#23C8AF',
+  boxSizing: 'border-box',
+  fontFamily: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(','),
+  '&:hover': {
+    color: '#fff',
+    backgroundColor: '#23C8AF',
+    borderColor: '#23C8AF',
+    boxShadow: 'none',
+  },
+  '&:active': {
+    boxShadow: 'none',
+    backgroundColor: '#23C8AF',
+    borderColor: '#23C8AF',
+    color: '#fff',
+  },
+  '&:focus': {
     boxShadow: 'none',
     backgroundColor: '#23C8AF',
     borderColor: '#23C8AF',

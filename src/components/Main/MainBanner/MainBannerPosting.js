@@ -35,9 +35,9 @@ const MainBannerPosting = (props) => {
         </Grid>
         <Grid maxWidth="100%" minWidth="1440px">
           <Grid top="100px" isPosition="absolute">
-            <Grid zIndex="-1" margin="75px 140px">
+            <Grid zIndex="-1" margin="55px 140px">
               <Grid>
-                {is_login ? (
+                {/* {is_login ? (
                   <Text color="#333333" bold size="28px">
                     {post_list?.nickname}님,
                   </Text>
@@ -45,30 +45,33 @@ const MainBannerPosting = (props) => {
                   <Text color="#333333" bold size="28px">
                     예비줍깅러님,
                   </Text>
-                )}
+                )} */}
 
                 <Text color="#333333" bold size="40px">
-                  Would You Like 줍깅?
+                  지구를 위한
+                </Text>
+                <Text color="#333333" bold size="40px">
+                  똑똑한 한걸음, 줍깅
                 </Text>
               </Grid>
               <Grid marigin="14px 0px">
                 <Text margin="3px 0px" color="#333333" size="14px">
-                  조깅 또는 러닝을 하면서 길가의 쓰레기를 수거하는 착한달리기,
-                  줍깅!
+                  다양한 줍깅 크루에 참여하고, 소통하고, 직접 크루를 만들기까지!
                 </Text>
-                <Text margin="3px 0px" color="#333333" size="14px">
-                  지구를 구하는 한걸음, 줍깅이 궁금하다면?
+                <Text bold margin="3px 0px" color="#333333" size="14px">
+                  이제 우리 줍깅에서 함께해요!
                 </Text>
                 <Text margin="3px 0px" color="#333333" size="14px">
                   지금 바로 함께 모임을 만들어 주세요!
                 </Text>
               </Grid>
 
-              <Grid margin="41px 0px">
+              <Grid margin="45px 0px">
                 {is_login ? (
                   <>
                     <Buttons
                       medium_b
+                      // mainBannerBtn
                       // margin="41px 0px"
                       _onClick={() => {
                         history.push('/posting');
@@ -81,6 +84,7 @@ const MainBannerPosting = (props) => {
                   <>
                     <Buttons
                       medium_b
+                      // mainBannerBtn
                       // margin="41px 0px"
                       _onClick={() => {
                         Swal.fire({

@@ -181,6 +181,10 @@ const PostCard = (props) => {
                 bold
                 _onClick={CardClick}
                 cursor="pointer"
+                textOverflow="ellipsis"
+                whiteSpace="nowrap"
+                overFlow="hidden"
+                display="block"
               >
                 {props.title}
               </Text>

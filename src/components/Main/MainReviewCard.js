@@ -100,25 +100,4 @@ const MainReviewCard = (props) => {
   );
 };
 
-// const TextAbb = styled.text`
-//   width: 160px;
-//   height: 70px;
-//   overflow: hidden;
-//   text-overflow: ellipsis;
-//   display: -webkit-box;
-//   -webkit-line-clamp: 2;
-//   -webkit-box-orient: vertical;
-
-//   display: block;
-//   display: -webkit-box;
-//   word-break: break-all;
-//   overflow: hidden;
-//   line-height: 1.2em;
-//   max-height: 2.4em; /* max: 4 lines */
-//   position: relative;
-//   margin-right: -1em;
-//   padding-right: 1em;
-//   width: 160px;
-// `;
-
 export default MainReviewCard;

@@ -18,7 +18,7 @@ const CheckSave = (props) => {
             </Text>
           </Grid>
         </MobileHeader>
-        <Grid width="360px" height="600px" centerColumnFlex>
+        <Grid width="360px" height="600px" centerColumnFlex margin="auto">
           <Image
             shape="rec"
             width="152px"

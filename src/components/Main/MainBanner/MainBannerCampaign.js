@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Container, Grid, Buttons, Text, Image } from '../../../elements/index';
 import { history } from '../../../redux/configureStore';
-import event_Banner from '../../../assets/MainBanner/event_Banner.svg';
 import event_Banner01 from '../../../assets/MainBanner/event_Banner01.svg';
+import MainBanner_event from '../../../assets/MainBanner/MainBanner_event.svg';
 
 import { getsCookie } from '../../../shared/Cookie';
 import Swal from 'sweetalert2';
@@ -20,7 +20,7 @@ const MainBannerCampaign = (props) => {
             height="600px"
             width="1440px"
             // src={event_Banner}
-            src={event_Banner01}
+            src={MainBanner_event}
 
             // cursor="pointer"
             // _onClick={() => {
@@ -31,7 +31,7 @@ const MainBannerCampaign = (props) => {
         <Grid maxWidth="100%" minWidth="1440px">
           <Grid top="100px" isPosition="absolute">
             <Grid zIndex="-1" margin="75px 140px">
-              <Grid>
+              {/* <Grid>
                 {is_login ? (
                   <Text color="#333333" bold size="28px">
                     {post_list?.nickname}님,
@@ -57,11 +57,12 @@ const MainBannerCampaign = (props) => {
                 <Text margin="3px 0px" color="#333333" size="14px">
                   지금 바로 함께 참여해주세요!
                 </Text>
-              </Grid>
+              </Grid> */}
 
-              <Grid margin="41px 0px">
+              <Grid margin="284px 0px 41px 0px">
                 <Buttons
                   medium_b
+                  // mainBannerBtn
                   // margin="41px 0px"
                   _onClick={() => {
                     history.push('/campaign/1');

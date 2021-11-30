@@ -141,7 +141,7 @@ const Main = (props) => {
                     bold
                     _onClick={changeType}
                   >
-                    #{post_list?.userInfo.type}
+                    #{post_list?.userInfo.type}에서
                   </Button>
                   <Button
                     margin="0px 10px 0px 0px "
