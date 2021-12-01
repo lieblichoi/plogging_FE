@@ -1,0 +1,4 @@
+/@ /index.html 404
+/ /index.html 404
+/@ /index.html 403
+/ /index.html 403
