@@ -47,7 +47,7 @@ const Header = (props) => {
                   header
                   color="#333333"
                   bgColor="#fff"
-                  _onClick={() => window.location.replace('/searches')}
+                  _onClick={() => window.location.replace('/searches')} 
                 >
                   참여하기
                 </Buttons>
