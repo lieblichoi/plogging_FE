@@ -44,27 +44,21 @@
   * 김민지 👧
 
 
-## 
-
-1. 사용 기술 🔧 ⚙️
+### 사용 기술 🔧 ⚙️
 
 <a href="https://ko.reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/></a>    <a href="https://javascript.info/" target="_blank"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/></a>    <a href="https://ko.redux.js.org/" target="_blank"><img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/></a>    <a href="https://styled-components.com/" target="_blank"><img src="https://img.shields.io/badge/Styled-components-DB7093?style=flat-square&logo=Styled-components&logoColor=white"/></a>
 
-#### 🎥**발표 영상**
+### 🎥**발표 영상**
 
 <a href="https://www.youtube.com/watch?v=3pamegVi4_w"><img src="https://img.shields.io/badge/Youtube-#FF0000?style=flat&logo=Youtube&logoColor=white&link=https://www.youtube.com/watch?v=3pamegVi4_w"/></a>
 
-
-
-#### 💬커뮤니케이션 툴
+### 💬커뮤니케이션 툴
 
 - GitHub
 - Slack
 - Gather
 
-
-
-### **1.프로젝트 소개**
+## **1.프로젝트 소개**
 ***
 프로젝트 소개 완벽한 플로깅 파트너
 
@@ -79,7 +73,7 @@
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FK2jSR%2FbtrmQ3IexYJ%2FFrkQKK7LwYi0LyQdpLjykk%2Fimg.png)
 
 
-### **2. 기획배경, 타겟층**
+## **2. 기획배경, 타겟층**
  ***  
 최근 몇년 새 MZ세대를 중심으로 운동과 환경을 함께 생각하는 그리너리/에코 챌린지 및 활동이 활발해졌습니다.더불어 생소했던 플로깅에 대한 인식 확산으로 단체/기업 등 홍보 차원의 플로깅 캠페인 역시 활성화 되고 있습니다.
 
