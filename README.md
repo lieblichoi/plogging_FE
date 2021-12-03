@@ -50,6 +50,18 @@
 
 <a href="https://ko.reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/></a>    <a href="https://javascript.info/" target="_blank"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/></a>    <a href="https://ko.redux.js.org/" target="_blank"><img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/></a>    <a href="https://styled-components.com/" target="_blank"><img src="https://img.shields.io/badge/Styled-components-DB7093?style=flat-square&logo=Styled-components&logoColor=white"/></a>
 
+#### 🎥**발표 영상**
+
+<a href="https://www.youtube.com/watch?v=3pamegVi4_w"><img src="https://img.shields.io/badge/Youtube-#FF0000?style=flat&logo=Youtube&logoColor=white&link=https://www.youtube.com/watch?v=3pamegVi4_w"/></a>
+
+
+
+#### 💬커뮤니케이션 툴
+
+- GitHub
+- Slack
+- Gather
+
 
 
 ### **1.프로젝트 소개**
