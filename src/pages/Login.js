@@ -1,7 +1,21 @@
-import React from "react";
+/* eslint-disable eqeqeq */
+import React from 'react';
+import { Redirect } from 'react-router';
+import { LoginForm } from '../components';
+import { getsCookie } from '../shared/Cookie';
 
 const Login = () => {
-  return <React.Fragment></React.Fragment>;
+  const cookie = getsCookie('token');
+
+  if (cookie == '') {
+    return <Redirect to='/' />;
+  }
+
+  return (
+    <React.Fragment>
+      <LoginForm />
+    </React.Fragment>
+  );
 };
 
 export default Login;
