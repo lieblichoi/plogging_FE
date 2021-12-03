@@ -80,38 +80,38 @@
 
 ![image](https://github.com/kancho06/Joopging-Server/raw/develop/readme_img/baegyong.png)
 
-## **3. 사이트맵*
+## **3. 사이트맵**
 ![6.1_사이트](./readmeImg/6.1_사이트맵.png)
 ## **4. 정보 구조도**
-![image](./readmeImg/6.2_정보 구조도.png)
+![6.2_정보 구조도](./readmeImg/6.2_정보 구조도.png)
 ## **5. 유저 플로우**
-![image](./readmeImg/6.3_유저 플로우.png)
+![6.3_유저 플로우](./readmeImg/6.3_유저 플로우.png)
 ## **6. 와이어 프레임**
-![image](./readmeImg/6.4_와이어프레임.png)
+![6.4_와이어프레임](./readmeImg/6.4_와이어프레임.png)
 ## **7. 프로젝트 아키텍처**
-![image](./readmeImg/6.5_아키텍쳐.png)
+![6.5_아키텍쳐](./readmeImg/6.5_아키텍쳐.png)
 ## **7-1. 프론트 엔드 아키텍처**
-![image](./readmeImg/6.5.1_프론트엔드 아키텍쳐.png)
+![6.5.1_프론트엔드 아키텍쳐](./readmeImg/6.5.1_프론트엔드 아키텍쳐.png)
 ## **8. 프론트 엔드 기술 챌린지**
-![image](./readmeImg/7.1_프론트엔드 기술 1.png)
+![7.1_프론트엔드 기술 1](./readmeImg/7.1_프론트엔드 기술 1.png)
 ***
-![image](./readmeImg/7.2_프론트엔드 기술 2.png)
+![7.2_프론트엔드 기술 2](./readmeImg/7.2_프론트엔드 기술 2.png)
 ***
-![image](./readmeImg/7.3_프론트엔드 기술 3.png)
+![7.3_프론트엔드 기술 3](./readmeImg/7.3_프론트엔드 기술 3.png)
 ***
-![image](./readmeImg/7.4_프론트엔드 기술 4.png)
+![7.4_프론트엔드 기술 4](./readmeImg/7.4_프론트엔드 기술 4.png)
 ***
-![image](./readmeImg/7.5_프론트엔드 기술 5.png)
+![7.5_프론트엔드 기술 5](./readmeImg/7.5_프론트엔드 기술 5.png)
 ***
-![image](./readmeImg/7.6_프론트엔드 기술 6.png)
+![7.6_프론트엔드 기술 6](./readmeImg/7.6_프론트엔드 기술 6.png)
 ## **9. 설문조사 결과**
-![image](./readmeImg/9.1_설문조사 결과.png)
+![9.1_설문조사 결과](./readmeImg/9.1_설문조사 결과.png)
 ## **10. 유저 피드백**
-![image](./readmeImg/9.2_유저 피드백1.png)
+![9.2_유저 피드백1](./readmeImg/9.2_유저 피드백1.png)
 ***
-![image](./readmeImg/9.3_유저 피드백2.png)
+![9.3_유저 피드백2](./readmeImg/9.3_유저 피드백2.png)
 ## **11. 마치며..**
-![image](./readmeImg/프로젝트를 마치며.png)
+![프로젝트를 마치며](./readmeImg/프로젝트를 마치며.png)
 
 
 
