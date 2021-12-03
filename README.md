@@ -81,7 +81,7 @@
 ![image](https://github.com/kancho06/Joopging-Server/raw/develop/readme_img/baegyong.png)
 
 ## **3. 사이트맵*
-![image](./readmeImg/6.1_사이트맵.png)
+![6.1_사이트](./readmeImg/6.1_사이트맵.png)
 ## **4. 정보 구조도**
 ![image](./readmeImg/6.2_정보 구조도.png)
 ## **5. 유저 플로우**
