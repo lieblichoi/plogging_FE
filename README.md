@@ -11,7 +11,7 @@
 
 
 
-## 1. 시연영상
+## 📺 시연영상
 
 [![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FpWazz%2FbtrmLAf2uvj%2FOUgZji2TqfpvnHfkv1MCP1%2Fimg.png)](https://www.youtube.com/watch?v=3pamegVi4_w&t=1s)
 
@@ -20,35 +20,36 @@
 
 
 
-## 2. 제작기간 & 팀원소개 🏃‍🏃‍♀️ 💨
+## 📅 제작기간 
 
 * 2021년 10월 25일 ~ 2021년 12월 04일 (6주)
 
+## 💃 팀원소개 🕺
 
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlFfL4%2FbtrmTPB2OFM%2FnOaLHITePIuKIlRM5zSwsK%2Fimg.png)
-## Back-end (Spring) <a href="https://github.com/kancho06/Joopging-Server"><img src="https://img.shields.io/badge/GitHub-000000?style=flat&logo=GitHub&logoColor=white&link=https://github.com/spacejay1007/plogging_FE"/></a>
 
-  * 이재성 🧔 (팀장)
-  * 남우식 👨
-  * 김선겸 🧔
-
-## Front-end (React) <a href="https://github.com/spacejay1007/plogging_FE"><img src="https://img.shields.io/badge/GitHub-000000?style=flat&logo=GitHub&logoColor=white&link=https://github.com/spacejay1007/plogging_FE"/></a>
+## 👨🏻‍💻 Front-end (React) <a href="https://github.com/spacejay1007/plogging_FE"><img src="https://img.shields.io/badge/GitHub-000000?style=flat&logo=GitHub&logoColor=white&link=https://github.com/spacejay1007/plogging_FE"/></a>
 
   * 최재환 🧔
   * 김재용 👨
   * 안정우 🧔
 
-## Designer 
+## 🧑🏽‍💻 Back-end (Spring) <a href="https://github.com/kancho06/Joopging-Server"><img src="https://img.shields.io/badge/GitHub-000000?style=flat&logo=GitHub&logoColor=white&link=https://github.com/spacejay1007/plogging_FE"/></a>
+
+  * 이재성 🧔 (팀장)
+  * 남우식 👨
+  * 김선겸 🧔
+
+## 🎨 Designer 
 
   * 한은현 👩
   * 김민지 👧
 
-
-### 사용 기술 🔧 ⚙️
+### 🔧 사용 기술 
 
 <a href="https://ko.reactjs.org/" target="_blank"><img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/></a>    <a href="https://javascript.info/" target="_blank"><img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=white"/></a>    <a href="https://ko.redux.js.org/" target="_blank"><img src="https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=Redux&logoColor=white"/></a>    <a href="https://styled-components.com/" target="_blank"><img src="https://img.shields.io/badge/Styled-components-DB7093?style=flat-square&logo=Styled-components&logoColor=white"/></a>
 
-### 💬커뮤니케이션 툴
+### 💬 커뮤니케이션 툴
 
 - GitHub
 - Slack
