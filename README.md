@@ -3,7 +3,7 @@
 # **<span style="color:#23C8AF">Project Joopgging </span>**
 
 
-[![image](https://github.com/kancho06/Joopging-Server/raw/develop/readme_img/joopgingicon.png)](https://joopgging.link)
+![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FK2jSR%2FbtrmQ3IexYJ%2FFrkQKK7LwYi0LyQdpLjykk%2Fimg.png)(https://joopgging.link)
 
 ## Project Joopggng Notion <a href="https://available-parent-09c.notion.site/12-aac1c51225424d16bda9bcce1bdb2360"><img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white&link=https://available-parent-09c.notion.site/12-aac1c51225424d16bda9bcce1bdb2360"/></a>
 
