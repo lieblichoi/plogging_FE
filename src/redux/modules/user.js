@@ -245,8 +245,9 @@ const profileEditMiddleware = (editProfile) => {
     apis
       .profileEdit(editProfile)
       .then((res) => {
+        const new_profile = res.data;
         dispatch(imageCreators.setPreview(null));
-        dispatch(profileEdit(editProfile));
+        dispatch(profileEdit(new_profile));
         Swal.fire({
           text: '회원정보 수정이 완료되었습니다.',
           width: '360px',

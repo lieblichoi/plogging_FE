@@ -117,6 +117,11 @@ function App() {
               <Route path='/searches' exact component={Searches} />
               <Route path='/campaign' exact component={Campaign} />
               <Route path='/campaign/1' exact component={CampaignDetail} />
+              <Route
+                path='/users/info/:userId'
+                exact
+                component={AnotherMypageForm}
+              />
               <Footer />
             </>
           </Switch>

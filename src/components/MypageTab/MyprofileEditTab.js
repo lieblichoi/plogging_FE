@@ -38,7 +38,7 @@ const MyprofileEditTab = () => {
 
   const [password, setPassword] = React.useState('');
   const [passwordCheck, setPasswordCheck] = React.useState('');
-  const [intro, setIntro] = React.useState([users?.intro]);
+  const [intro, setIntro] = React.useState(users?.intro);
 
   const [location, setLocation] = React.useState(types2[users?.location]);
   const [type, setType] = React.useState(types1[users?.type]);

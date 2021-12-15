@@ -38,10 +38,6 @@ import UnMaster_Lv2 from '../../assets/Badge/UnMaster_Lv2.svg';
 
 const AnotherProfileBadge = (props) => {
   const dispatch = useDispatch();
-  // const badge = useSelector((state) => state.user.myBadge?.data);
-
-  // const userId = Number(props.userId);
-  // console.log(userId);
 
   const userInfo = useSelector((state) => state.user.userInfo?.badgeList);
 

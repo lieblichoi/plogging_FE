@@ -91,6 +91,7 @@ export const Comment = (props) => {
               small_w
               _onClick={() => {
                 if (is_login) {
+                  // eslint-disable-next-line no-lone-blocks
                   {
                     commentValue == ''
                       ? Swal.fire({

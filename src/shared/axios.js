@@ -83,7 +83,7 @@ export const apis = {
   getMyPageNumAX: () => instance.get(`/users/mypage`),
 
   // 회원정보 수정
-  profileEdit: (editProfile) => instance.put('/users', editProfile),
+  profileEdit: (profileInfo) => instance.put('/users', profileInfo),
   // 수정한 회원정보 불러오기
   // getProfileAX: () => instance.get('/users'),
 
